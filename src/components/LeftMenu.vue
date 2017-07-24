@@ -1,4 +1,4 @@
-<style lang="scss" scoped>
+<style lang="scss">
     .m-LeftMenu{
         width: 200px;
         position: absolute;
@@ -78,13 +78,26 @@
             }
         }
         .search{
-            padding: 0 0 15px 24px;
-        }
-        .title{
-            color: #ffffff;
-            padding-left: 24px;
-            line-height: 30px;
-            background: rgb(26, 24, 38);
+            padding: 0 0 15px 0;
+            .searchIpt{
+                // width: 20px;
+                @include transition(width $ease-out .5s);
+                // .ivu-input-group-append{
+                //     background-color: $white;
+                //     border: 0;
+                //     border-left: 0!important;
+                //     &:hover{
+                //         color: $main;
+                //     }
+                // }
+                // .ivu-input{
+                //     border: 0;
+                //     border-right: 0!important;
+                // }
+                &.active{
+                }
+            }
+
         }
         .routerClass{
             display: block;
@@ -94,23 +107,22 @@
 <template>
     <div class="m-LeftMenu">
         <div class="user">
-            <div class="">
+            <div>
                 <div class="user-ico">
                     VL
                 </div>
             </div>
             <p class="user-name">Vincent Li</p>
-            <p class="user-type">系统管理员</p>
+            <p class="user-type" @click="searchIconClick">系统管理员</p>
             <div class="user-actions">
                 <Icon class="user-actions-action" size="14" type="android-settings"></Icon>
                 <Icon class="user-actions-action" size="14" type="ios-bell"></Icon>
             </div>
         </div>
-        <div class="search">
-            <Input :class="'searchIpt'" icon="ios-search" placeholder="请输入..." style="width: 150px"></Input>
-        </div>
-        <div class="title">
-            主菜单
+        <div class="search f-cb">
+            <Input class="searchIpt f-fr" placeholder="请输入..." icon="ios-search">
+
+            </Input>
         </div>
         <Menu :theme="'dark'" :open-names="['0']" accordion style="width: 200px">
 
@@ -224,6 +236,7 @@ export default {
     props: [''],
     data() {
       return {
+          searchActive: false
         }
     },
     methods: {
@@ -232,6 +245,17 @@ export default {
                 title: '暂无此页面，敬请期待',
                 desc: nodesc ? '' : '暂无此页面，敬请期待'
             })
+        },
+        // 搜索获得焦点
+        searchBlur() {
+            console.log(2)
+            this.searchActive = false
+            console.log('blur')
+        },
+        searchIconClick() {
+            console.log(1)
+            // this.searchActive = true
+            // this.$refs.navSearch.$refs.input.focus()
         }
     }
 }
