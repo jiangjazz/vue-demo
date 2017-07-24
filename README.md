@@ -20,5 +20,8 @@ npm run build --report
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+## v1.1.0
+>添加了两个开发包，node-sass sass-loader，该问题导致编译sass／scss时报错
+
 ## v1.0.0
 >简单使用了vue和ivew构建了一个demo项目。初步解决了在vuex模式下，全局scss变量引用问题。
