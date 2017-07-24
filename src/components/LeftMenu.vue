@@ -5,10 +5,10 @@
         top: 48px;
         left: 0;
         bottom: 0;
-        background: rgb(34, 45, 50);
+        background: $white;
         overflow-y: auto;
         .ivu-menu-dark{
-            background: rgb(34, 45, 50);
+            background: $white;
             .ivu-menu-item{
                 color: #ffffff;
             }
@@ -41,7 +41,41 @@
             }
         }
         .user{
-            padding: 10px 15px;
+            padding: 15px 15px;
+            text-align: center;
+            position: relative;
+            &-ico{
+                display: inline-block;
+                margin: auto;
+                width: 50px;
+                height: 50px;
+                color: $text-white;
+                line-height: 50px;
+                font-size: $f-h3;
+                cursor: pointer;
+                @include border-radius(50%);
+                @include background-image($sub $main, left);
+                @include box-shadow(0 0 3px $shadow);
+                &:hover{
+                    @include box-shadow(0 0 5px $sub*0.81);
+                }
+            }
+            &-name{
+                font-size: $f-h5;
+                line-height: 1.5em;
+            }
+            &-type{
+                font-size: $f-h6;
+            }
+            &-actions{
+                position: absolute;
+                top: 6px;
+                right: 10px;
+                &-action{
+                    padding: 3px;
+                    cursor: pointer;
+                }
+            }
         }
         .search{
             padding: 0 0 15px 24px;
@@ -60,7 +94,17 @@
 <template>
     <div class="m-LeftMenu">
         <div class="user">
-            <img class="userpic" :src="userpic" height="43" alt="">
+            <div class="">
+                <div class="user-ico">
+                    VL
+                </div>
+            </div>
+            <p class="user-name">Vincent Li</p>
+            <p class="user-type">系统管理员</p>
+            <div class="user-actions">
+                <Icon class="user-actions-action" size="14" type="android-settings"></Icon>
+                <Icon class="user-actions-action" size="14" type="ios-bell"></Icon>
+            </div>
         </div>
         <div class="search">
             <Input :class="'searchIpt'" icon="ios-search" placeholder="请输入..." style="width: 150px"></Input>
@@ -175,13 +219,11 @@
 </template>
 
 <script>
-import userpic from '@/assets/user_1.png'
 
 export default {
     props: [''],
     data() {
       return {
-            userpic
         }
     },
     methods: {
