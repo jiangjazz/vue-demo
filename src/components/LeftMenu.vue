@@ -1,43 +1,76 @@
 <style lang="scss">
     .m-LeftMenu{
-        width: 200px;
+        width: $navWidth;
         position: absolute;
-        top: 48px;
+        top: $headerHeight;
         left: 0;
         bottom: 0;
         background: $white;
         overflow-y: auto;
-        .ivu-menu-dark{
-            background: $white;
+        .ivu-menu{
             .ivu-menu-item{
-                color: #ffffff;
+                color: $text-normal;
+            }
+            .ivu-icon{
+                color: $text-normal;
             }
             &.ivu-menu-vertical{
                 .ivu-menu-item{
-                    color: #ffffff;
+                    color: $text-normal;
                 }
-                .ivu-menu-opened{
-                    background: rgb(44, 59, 65);
+            }
+            .ivu-menu-submenu-title{
+                color: $text-normal;
+                &:hover{
+                    background: $navActive;
+                    color: $text-important;
+                    .ivu-icon{
+                        color: $text-important;
+                    }
                 }
-                .homelink{
-                    color: #80848f;
+            }
+
+            .ivu-menu-opened{
+                .ivu-menu-submenu-title{
+                    background: $navActive;
                 }
             }
             .ivu-menu-submenu{
                 .ivu-menu-item{
                     padding-top: 8px;
                     padding-bottom: 8px;
-                    font-size: 12px;
+                    font-size: $f-h6;
+                    border-left: 2px solid transparent;
+                    &:hover{
+                        color: $text-important;
+                        background: $navActive;
+                    }
+                }
+                .ivu-menu-item-active{
+                    border-left: 2px solid $main;
                 }
             }
-
             .homelink{
-                text-indent: 22px;
-                color: #80848f;
-                background: rgb(34, 45, 50);
-                &.ivu-menu-item-selected{
-                    color: #ffffff;
+                border-left: 2px solid transparent;
+                &:hover{
+                    color: $text-important;
+                    background: $navActive;
                 }
+            }
+        }
+        .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu){
+            border-right: 0;
+            border-left: 2px solid $main;
+            background: $navActive;
+            color: $text-important;
+            .ivu-icon{
+                color: $text-important;
+            }
+        }
+        .ivu-menu-vertical.ivu-menu-light{
+            background: transparent;
+            &:after{
+                background: transparent;
             }
         }
         .user{
@@ -79,25 +112,6 @@
         }
         .search{
             padding: 0 0 15px 0;
-            .searchIpt{
-                // width: 20px;
-                @include transition(width $ease-out .5s);
-                // .ivu-input-group-append{
-                //     background-color: $white;
-                //     border: 0;
-                //     border-left: 0!important;
-                //     &:hover{
-                //         color: $main;
-                //     }
-                // }
-                // .ivu-input{
-                //     border: 0;
-                //     border-right: 0!important;
-                // }
-                &.active{
-                }
-            }
-
         }
         .routerClass{
             display: block;
@@ -105,7 +119,7 @@
     }
 </style>
 <template>
-    <div class="m-LeftMenu">
+    <div class="m-LeftMenu" :style="menuBg">
         <div class="user">
             <div>
                 <div class="user-ico">
@@ -113,26 +127,29 @@
                 </div>
             </div>
             <p class="user-name">Vincent Li</p>
-            <p class="user-type" @click="searchIconClick">系统管理员</p>
+            <p class="user-type">系统管理员</p>
             <div class="user-actions">
                 <Icon class="user-actions-action" size="14" type="android-settings"></Icon>
                 <Icon class="user-actions-action" size="14" type="ios-bell"></Icon>
             </div>
         </div>
         <div class="search f-cb">
-            <Input class="searchIpt f-fr" placeholder="请输入..." icon="ios-search">
+            <Input class="searchIpt f-fr" placeholder="请输入..." icon="ios-search" onclick="searchIconClick">
 
             </Input>
         </div>
-        <Menu :theme="'dark'" :open-names="['0']" accordion style="width: 200px">
+        <Menu :open-names="['0']" accordion style="width: 200px">
 
             <router-link class="routerClass" to="/">
-                <Menu-item :class="'homelink'" name="0">首页</Menu-item>
+                <Menu-item :class="'homelink'" name="0">
+                    <Icon type="ios-home"></Icon>
+                    首页
+                </Menu-item>
             </router-link>
 
             <Submenu name="1">
                 <template slot="title">
-                    <Icon type="ios-paper"></Icon>
+                    <Icon type="ios-pie"></Icon>
                     数据中心
                 </template>
                 <router-link class="routerClass" to="/data/order">
@@ -198,7 +215,7 @@
             </Submenu>
             <Submenu name="4">
                 <template slot="title">
-                    <Icon type="stats-bars"></Icon>
+                    <Icon type="ios-briefcase"></Icon>
                     商城中心
                 </template>
                 <router-link class="routerClass" to="/store/product">
@@ -207,36 +224,39 @@
                 <router-link class="routerClass" to="/store/order">
                     <Menu-item name="4-2">订单管理</Menu-item>
                 </router-link>
-                <!-- <Menu-item name="4-3">红包兑换规则（暂无）</Menu-item>
-                <Menu-item name="4-4">积分管理（暂无）</Menu-item> -->
             </Submenu>
             <Submenu name="5">
                 <template slot="title">
-                    <Icon type="stats-bars"></Icon>
+                    <Icon type="person"></Icon>
                     个人中心
                 </template>
-                <!-- <Menu-item name="5-1">我的预约（暂无）</Menu-item>
-                <Menu-item name="5-2">我的积分（暂无）</Menu-item> -->
                 <router-link class="routerClass" to="/personal/coupon">
                     <Menu-item name="5-3">我的礼品卷</Menu-item>
                 </router-link>
-
-                <!-- <Menu-item name="5-4">我的业绩与指标（暂无）</Menu-item>
-                <Menu-item name="5-5">修改个人信息（暂无）</Menu-item>
-                <Menu-item name="5-6">角色与权限（仅管理员）（暂无）</Menu-item>
-                <Menu-item name="5-7">用户管理（仅管理员）（暂无）</Menu-item> -->
             </Submenu>
         </Menu>
     </div>
 </template>
 
 <script>
+import nav_bg from '@/assets/nav-bg.png'
 
 export default {
     props: [''],
     data() {
       return {
+          nav_bg,
           searchActive: false
+        }
+    },
+    computed: {
+        menuBg() {
+            return {
+                backgroundImage: 'url('+ nav_bg +')',
+                backgroundPosition: 'bottom center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '100% auto',
+            }
         }
     },
     methods: {
@@ -246,17 +266,6 @@ export default {
                 desc: nodesc ? '' : '暂无此页面，敬请期待'
             })
         },
-        // 搜索获得焦点
-        searchBlur() {
-            console.log(2)
-            this.searchActive = false
-            console.log('blur')
-        },
-        searchIconClick() {
-            console.log(1)
-            // this.searchActive = true
-            // this.$refs.navSearch.$refs.input.focus()
-        }
     }
 }
 </script>
