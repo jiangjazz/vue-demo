@@ -42,7 +42,7 @@
             </div>
 
             <div :class="prefixCls+'-search'">
-                <Input icon="ios-search" placeholder="请输入..." style="width: 200px"></Input>
+                <Input icon="ios-search" placeholder="请输入关键词搜索" style="width: 200px"></Input>
             </div>
         </div>
         <slot name="actions"></slot>

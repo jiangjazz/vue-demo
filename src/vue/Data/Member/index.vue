@@ -17,16 +17,19 @@
         data() {
             return {
                 title: '会员与粉丝数据',
-                items: [{
-                    text: '报表',
-                    to: '/data/member'
-                }, {
-                    text: '会员数据',
-                    to: '/data/member/users'
-                }, {
-                    text: '粉丝数据',
-                    to: '/data/member/fans'
-                }]
+                items: [
+                //     {
+                //     text: '报表',
+                //     to: '/data/member'
+                // }
+                // , {
+                //     text: '会员数据',
+                //     to: '/data/member/users'
+                // }, {
+                //     text: '粉丝数据',
+                //     to: '/data/member/fans'
+                // }
+                ]
             }
         }
     }

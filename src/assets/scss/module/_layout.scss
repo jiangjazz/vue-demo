@@ -32,6 +32,13 @@
 .u-breadcrumb{
     background: $white!important;
 }
+.u-box-block{
+    padding: 15px 10px;
+    background-color: $white;
+    @include box-shadow(1px 1px 5px $shadow);
+}
+
+
 .m-table-ct{
     padding: 20px;
     background-color: $bg-content;
@@ -141,4 +148,16 @@
 }
 .ivu-alert{
     margin-bottom: 0;
+}
+.ivu-btn{
+    &.purple{
+        color: $white;
+        background-color: $purple;
+        border-color: $purple;
+        &:hover{
+            color: $white;
+            background-color: $purple-hover;
+            border-color: $purple-hover;
+        }
+    }
 }

@@ -18,9 +18,9 @@ import DataOrderOffline from '@/vue/Data/Order/Offline.vue'
 // 会员与粉丝数据
 import DataMember from '@/vue/Data/Member/index.vue'
 import DataMemberReport from '@/vue/Data/Member/Report.vue'
-import DataMemberUsers from '@/vue/Data/Member/Users.vue'
-import DataMemberFans from '@/vue/Data/Member/Fans.vue'
-import DataMemberDetails from '@/vue/Data/Member/Details.vue'
+// import DataMemberUsers from '@/vue/Data/Member/Users.vue'
+// import DataMemberFans from '@/vue/Data/Member/Fans.vue'
+// import DataMemberDetails from '@/vue/Data/Member/Details.vue'
 // 线上活动数据
 import DataActivity from '@/vue/Data/Activity/index.vue'
 import DataActivityMarketing from '@/vue/Data/Activity/Marketing.vue'
@@ -34,6 +34,13 @@ import dataStaffShops from '@/vue/Data/Staff/Shops.vue'
 * 会员中心
 */
 import Member from '@/vue/Member/index.vue'
+// 会员列表
+import MemberUsers from '@/vue/Member/Users/index.vue'
+import MemberUsersList from '@/vue/Member/Users/List.vue'
+// 粉丝列表
+import MemberFans from '@/vue/Member/Fans/index.vue'
+import MemberFansList from '@/vue/Member/Fans/List.vue'
+import MemberFansDetails from '@/vue/Member/Fans/Details.vue'
 // 会员分组
 import MemberGroup from '@/vue/Member/Group/index.vue'
 import MemberGroupList from '@/vue/Member/Group/List.vue'
@@ -127,19 +134,20 @@ export default (Vue, VueRouter) => {
                             path: '/',
                             name: 'dataMemberReport',
                             component: DataMemberReport
-                        },{
-                            path: 'users',
-                            name: 'dataMemberUsers',
-                            component: DataMemberUsers
-                        },{
-                            path: 'fans',
-                            name: 'dataMemberFans',
-                            component: DataMemberFans
-                        },{
-                            path: 'details:id',
-                            name: 'dataMemberDetails',
-                            component: DataMemberDetails
                         }
+                        // ,{
+                        //     path: 'users',
+                        //     name: 'dataMemberUsers',
+                        //     component: DataMemberUsers
+                        // },{
+                        //     path: 'fans',
+                        //     name: 'dataMemberFans',
+                        //     component: DataMemberFans
+                        // },{
+                        //     path: 'details:id',
+                        //     name: 'dataMemberDetails',
+                        //     component: DataMemberDetails
+                        // }
                     ]
                 },{
                     path: 'activity',
@@ -181,15 +189,41 @@ export default (Vue, VueRouter) => {
             redirect: '/member/group/list',
             children: [
                 {
-                    // 借用
                     path: 'users',
-                    component: DataMemberUsers
-                },
-                {
-                    // 借用
+                    component: MemberUsers,
+                    children: [
+                        {
+                            path: '/',
+                            name: 'memberUsersList',
+                            component: MemberUsersList,
+                        }
+                    ]
+                },{
                     path: 'fans',
-                    component: DataMemberFans
+                    component: MemberFans,
+                    children: [
+                        {
+                            path: '/',
+                            name: 'memberFansList',
+                            component: MemberFansList,
+                        },
+                        {
+                            path: 'details:id',
+                            name: 'memberFansDetails',
+                            component: MemberFansDetails,
+                        }
+                    ]
                 },
+                // {
+                //     // 借用
+                //     path: 'users',
+                //     // component: DataMemberUsers
+                // },
+                // {
+                //     // 借用
+                //     path: 'fans',
+                //     // component: DataMemberFans
+                // },
                 {
                     path: 'group',
                     component: MemberGroup,

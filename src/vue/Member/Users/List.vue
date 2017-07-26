@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-    .data-member-users{
+    .member-users-list{
         background-color: #ffffff;
         .ivu-alert{
             padding-left: 20px;
@@ -7,7 +7,7 @@
     }
 </style>
 <template>
-    <div class="data-member-users">
+    <div class="member-users-list">
         <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
         <Alert banner closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
         <div class="m-table-ct">
@@ -20,10 +20,10 @@
 import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 
-import datas from '@/datas/dataMemberUsers.js'
+import datas from '@/datas/memberUsersList.js'
 
 export default {
-    name: 'dataMemberUsers',
+    name: 'memberUsersList',
     components: {
         Mybreadcrumb,
         TableTemp

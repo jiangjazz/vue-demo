@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-    .data-member-fans{
+    .member-fans-list{
         background-color: #ffffff;
         .ivu-alert{
             padding-left: 20px;
@@ -7,8 +7,9 @@
     }
 </style>
 <template>
-    <div class="data-member-fans">
-        <Alert banner closable type="success">最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
+    <div class="member-fans-list">
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
+        <Alert banner closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
         <div class="m-table-ct">
             <TableTemp :rowJump="rowJump" :tableHead="tableHead" :tableData="tableData"></TableTemp>
         </div>
@@ -16,17 +17,24 @@
 </template>
 <script>
 
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 
-import datas from '@/datas/dataMemberFans.js'
+import datas from '@/datas/memberFansList.js'
 
 export default {
-    name: 'dataMemberFans',
+    name: 'memberFansList',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '粉丝列表'
+                }
+            ],
             tableHead: [{
                 title: '头像',
                 key: 'head'
@@ -56,14 +64,24 @@ export default {
                 key: 'time'
             }, {
                 title: '标签',
-                key: 'tag'
+                key: 'tag',
+                render(createElement, obj) {
+                    return createElement('Button', {
+                        class: 'f-ib purple',
+                        props: {
+                            shape: 'circle',
+                            size: 'small'
+                        },
+                        style: 'margin: 5px;'
+                    }, obj.row.tag)
+                }
             }],
             tableData: datas.tableData
         }
     },
     methods: {
         rowJump(item) {
-            this.$router.push('/data/member/details'+ item.weixinid)
+            this.$router.push('/member/fans/details'+ item.weixinid)
         }
     }
 }
