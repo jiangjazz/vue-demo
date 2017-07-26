@@ -32,6 +32,10 @@
 .u-breadcrumb{
     background: $white!important;
 }
+.m-table-ct{
+    padding: 20px;
+    background-color: $bg-content;
+}
 .ivu-btn{
     &:hover{
         color: $main;
@@ -42,4 +46,99 @@
             color: $white;
         }
     }
+}
+.ivu-input{
+    &:hover{
+        border-color: $main;
+    }
+    &:focus{
+        border-color: $main;
+        @include box-shadow(0 0 0 2px rgba($main, 0.2));
+    }
+}
+.ivu-page{
+    &-prev{
+        margin-right: 0;
+        @include border-radius(4px 0 0 4px);
+        &:hover{
+            border-color: $main;
+            a{
+                color: $main;
+            }
+        }
+    }
+    &-item{
+        margin-right: 0;
+        @include border-radius(0);
+        &:hover{
+            border-color: $main;
+            color: $main;
+            a{
+                color: $main;
+            }
+        }
+        &-active{
+            border-color: $main;
+            background-color: $main;
+            a{
+                color: $white;
+            }
+            &:hover{
+                a{
+                    color: $white;
+                }
+            }
+        }
+        &:not(:last-child){
+            // border-right: 0;
+        }
+        &-jump-next,
+        &-jump-prev{
+            margin-right: 0;
+            @include border-radius(0);
+            &:hover{
+                border-color: $main;
+                color: $main;
+                a{
+                    color: $main;
+                }
+            }
+        }
+    }
+    &-next{
+        margin-left: 0;
+        @include border-radius(0 4px 4px 0);
+        &:hover{
+            border-color: $main;
+            a{
+                color: $main;
+            }
+        }
+    }
+    &-disabled{
+        background-color: $disabled;
+        a{
+            color: $white;
+        }
+        &:hover{
+            border-color: $disabled;
+            a{
+                color: $white;
+            }
+        }
+    }
+}
+.ivu-page-options-elevator{
+    input{
+        &:hover{
+            border-color: $main;
+        }
+        &:focus{
+            border-color: $main;
+            @include box-shadow(0 0 0 2px rgba($main, 0.2));
+        }
+    }
+}
+.ivu-alert{
+    margin-bottom: 0;
 }

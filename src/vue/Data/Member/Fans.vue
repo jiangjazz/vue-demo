@@ -9,7 +9,9 @@
 <template>
     <div class="data-member-fans">
         <Alert banner closable type="success">最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
-        <TableTemp :rowJump="rowJump" :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        <div class="m-table-ct">
+            <TableTemp :rowJump="rowJump" :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        </div>
     </div>
 </template>
 <script>

@@ -1,12 +1,28 @@
 <style lang="scss">
     .u-breadcrumb{
+        padding: 0 20px;
+        height: $ctNavHeight;
+        background-color: $white;
+        border-bottom: 1px solid $border-default;
+        line-height: $ctNavHeight;
+        .item{
+            color: $text-disabled;
+            &.active{
+                color: $text-normal;
+            }
+        }
     }
 </style>
 <template>
     <div :class="prefixCls">
-        <router-link to="/member/group/list" class="item">会员分组</router-link>
+        <!-- <router-link to="/member/group/list" class="item">会员分组</router-link>
         <span class="separator">></span>
-        <span class="item active">详情</span>
+        <span class="item active">详情</span> -->
+        <span v-for="(item, index) in items" v-if="itemsLength > 1 && index !== (itemsLength - 1)" :key="index">
+            <router-link :to="item.to" class="item">{{ item.text }}</router-link>
+            <span class="separator">></span>
+        </span>
+        <span class="item active">{{ items[itemsLength - 1].text }}</span>
     </div>
 </template>
 <script>
@@ -21,6 +37,11 @@
                 default() {
                     return []
                 }
+            }
+        },
+        computed: {
+            itemsLength() {
+                return this.items.length
             }
         },
         methods: {

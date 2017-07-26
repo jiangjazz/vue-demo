@@ -1,5 +1,8 @@
 <style lang="scss" scoped>
     .m-table{
+        padding: 15px 10px;
+        background-color: $white;
+        @include box-shadow(1px 1px 5px $shadow);
         &-titleGroup{
             margin-bottom: 10px;
             padding: 5px 20px;
@@ -18,17 +21,24 @@
                 float: right;
             }
         }
+        &-total{
+            color: $main;
+        }
     }
 </style>
 <template>
     <div :class="prefixCls">
         <div :class="prefixCls+'-titleGroup f-cb'">
             <div :class="prefixCls+'-title'">
-                每页现实
-                <Select value="15" style="width:45px" placeholder="">
+                每页显示
+                <Select size="small" value="15" style="width:45px" placeholder="">
                     <Option v-for="item in SelectOpt" :value="item.value" :key="item">{{ item.text }}</Option>
                 </Select>
-                数据
+                数据,
+                <template v-if="total">
+                    ，共
+                    <span :class="prefixCls+'-total'">{{ total }}</span>条数据
+                </template>
             </div>
 
             <div :class="prefixCls+'-search'">
@@ -37,7 +47,7 @@
         </div>
         <slot name="actions"></slot>
         <!-- 表格区域 -->
-        <Table border :columns="tableHead" :data="tableData" @on-row-click="onRowClick"></Table>
+        <Table :columns="tableHead" :data="tableData" @on-row-click="onRowClick"></Table>
 
         <!-- 分页组件 -->
         <div :class="prefixCls+'-pagination f-cb'">
@@ -50,6 +60,9 @@
 export default {
     name: 'table',
     props: {
+        total: {
+            default: 2128
+        },
         tableHead: {
             type: Array,
             default() {

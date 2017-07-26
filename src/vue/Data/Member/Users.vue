@@ -8,12 +8,16 @@
 </style>
 <template>
     <div class="data-member-users">
-        <Alert banner closable type="success">最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
-        <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
+        <Alert banner closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        </div>
     </div>
 </template>
 <script>
 
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 
 import datas from '@/datas/dataMemberUsers.js'
@@ -21,10 +25,16 @@ import datas from '@/datas/dataMemberUsers.js'
 export default {
     name: 'dataMemberUsers',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '会员列表'
+                }
+            ],
             tableHead: [{
                 title: '会员ID',
                 key: 'userid'

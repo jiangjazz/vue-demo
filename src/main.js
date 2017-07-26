@@ -12,3 +12,6 @@ Vue.config.productionTip = false
 Vue.use(UI_iview)
 Vue.use(VueRouter)
 VueRouterConfig(Vue, VueRouter)
+
+console.log('%c欢迎，这里是Janzen使用vue+ivew写的一个小demo\n', 'color: white;background: black;')
+console.log('%c如果你有更多的想法，请联系janzenjiang@qq.com\n', 'color: white;background: black;')
