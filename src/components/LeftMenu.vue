@@ -7,9 +7,11 @@
         bottom: 0;
         background: $white;
         overflow-y: auto;
+        z-index: 10;
+        @include box-shadow(0 0 20px $shadow);
         .ivu-menu{
             .ivu-menu-item{
-                color: $text-normal;
+                color: $text-disabled;
             }
             .ivu-icon{
                 color: $text-normal;
@@ -34,24 +36,26 @@
                 .ivu-menu-submenu-title{
                     background: $navActive;
                 }
+                .ivu-menu-item{
+                    background: $navActive;
+                }
             }
             .ivu-menu-submenu{
                 .ivu-menu-item{
                     padding-top: 8px;
                     padding-bottom: 8px;
                     font-size: $f-h6;
-                    border-left: 2px solid transparent;
+                    border-left: 4px solid transparent;
                     &:hover{
                         color: $text-important;
-                        background: $navActive;
                     }
                 }
                 .ivu-menu-item-active{
-                    border-left: 2px solid $main;
+                    border-left: 4px solid $main;
                 }
             }
             .homelink{
-                border-left: 2px solid transparent;
+                border-left: 4px solid transparent;
                 &:hover{
                     color: $text-important;
                     background: $navActive;
@@ -60,9 +64,10 @@
         }
         .ivu-menu-light.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu){
             border-right: 0;
-            border-left: 2px solid $main;
+            border-left: 4px solid $main;
             background: $navActive;
             color: $text-important;
+            font-weight: bold;
             .ivu-icon{
                 color: $text-important;
             }

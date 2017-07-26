@@ -8,16 +8,38 @@
     bottom: 0;
     left: 0;
     right: 0;
-    min-width: 1400px;
-    min-height: 600px;
+    min-width: $minWidth;
+    min-height: $minHeight;
     overflow: auto;
     .m-content{
         position: absolute;
-        top: 48px;
-        left: 200px;
+        top: $headerHeight;
+        left: $navWidth;
         bottom: 0;
         right: 0;
         overflow: auto;
         background: $bg-content;
+    }
+}
+.data-content{
+    position: absolute;
+    top: $ctNavHeight;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+.u-breadcrumb{
+    background: $white!important;
+}
+.ivu-btn{
+    &:hover{
+        color: $main;
+        border-color: $main;
+    }
+    &-success{
+        &:hover{
+            color: $white;
+        }
     }
 }

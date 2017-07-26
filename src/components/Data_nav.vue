@@ -1,59 +1,61 @@
 <style lang="scss">
     .data-nav{
-        height: 40px;
-        background-color: rgb(242, 242, 242);
-        border-bottom: 1px solid #cccccc;
+        height: $ctNavHeight;
+        background-color: $white;
+        border-bottom: 1px solid $border-default;
         &-title{
             display: inline-block;
-            margin-left: 20px;
-            height: 40px;
-            line-height: 40px;
+            margin: 0 20px;
+            height: $ctNavHeight;
+            line-height: $ctNavHeight;
+            font-size: $f-h3;
+            font-weight: bold;
             vertical-align: middle;
-            font-size: 18px;
         }
         &-group{
+            height: $ctNavHeight;
             display: inline-block;
-            float: right;
+            vertical-align: middle;
+
         }
         &-item{
-            margin: 0 5px;
+            margin: 5px 10px 0 10px;
             display: inline-block;
-            width: 100px;
-            line-height: 38px;
-            font-size: 14px;
+            width: 80px;
+            line-height: $ctNavHeight - 5px - 3px;
+            font-size: $f-h6;
             text-align: center;
             cursor: pointer;
+            color: $text-disabled;
             a{
                 display: block;
-                color: #495060;
+                color: $text-disabled;
             }
             &-active{
-                background-color: rgb(236, 240, 245);
-                border:1px solid #cccccc;
-                border-bottom-color: rgb(236, 240, 245);
+                border-bottom: 3px solid  $main;
                 a{
-                    color: #2d8cf0;
+                    color: $text-important;
                 }
             }
         }
     }
 </style>
 <template>
-    <div :class="prefixCls" class="f-cb">
-        <div v-if="title" :class="prefixCls+'-title'">
-            {{ title }}
-        </div>
-        <div :class="prefixCls+'-group'">
-            <div :class="itemClasses(item)" v-for="(item, index) in items" :key="item.to + index">
-                <router-link v-if="!item.nopage" :to="item.to" >
-                    {{ item.text }}
-                </router-link>
-                <div v-else @click="nopageInfo(false)">
-                    {{ item.text }}
+    <div :class="prefixCls">
+            <div v-if="title" :class="prefixCls+'-title'">
+                {{ title }}
+            </div>
+            <div :class="prefixCls+'-group'">
+                <div :class="itemClasses(item)" v-for="(item, index) in items" :key="item.to + index">
+                    <router-link v-if="!item.nopage" :to="item.to" >
+                        {{ item.text }}
+                    </router-link>
+                    <div v-else @click="nopageInfo(false)">
+                        {{ item.text }}
+                    </div>
                 </div>
             </div>
 
-        </div>
     </div>
 </template>
 <script>
@@ -68,6 +70,11 @@
             },
             items: {
                 type: Array,
+                default() {
+                    return []
+                }
+            },
+            breadcrumb: {
                 default() {
                     return []
                 }

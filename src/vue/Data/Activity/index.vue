@@ -1,5 +1,3 @@
-<style lang="scss">
-</style>
 <template>
     <div class="data-activity">
         <DataNav :title="title" :items="items"></DataNav>

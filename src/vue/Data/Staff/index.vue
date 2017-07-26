@@ -1,5 +1,3 @@
-<style lang="scss">
-</style>
 <template>
     <div class="data-staff">
         <DataNav :title="title" :items="items"></DataNav>

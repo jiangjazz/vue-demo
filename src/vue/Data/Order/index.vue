@@ -1,13 +1,3 @@
-<style lang="scss">
-    .data-content{
-        position: absolute;
-        top: 41px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: auto;
-    }
-</style>
 <template>
     <div class="data-order">
         <DataNav :title="title" :items="items"></DataNav>

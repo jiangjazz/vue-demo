@@ -2,7 +2,7 @@ export default {
   echartsOpts: [
         {
             title: {
-              text: '线下订单成交量（Daily offline order by souce）'
+              text: '线下订单成交量'
             },
             legend: {
                 top: 40,
@@ -23,41 +23,43 @@ export default {
             yAxis: {
                 type: 'value'
             },
-            series: [{
-                name: '自然订单',
-                type: 'line',
-                stack: '总量',
-                data: [120, 132, 101, 134, 90, 230, 210]
-            },
-            {
-                name: '微信粉丝',
-                type: 'line',
-                stack: '总量',
-                data: [220, 182, 191, 234, 290, 330, 310]
-            },
-            {
-                name: '微信活跃粉丝',
-                type: 'line',
-                stack: '总量',
-                data: [150, 232, 201, 154, 190, 330, 410]
-            },
-            {
-                name: '微信广告',
-                type: 'line',
-                stack: '总量',
-                data: [320, 332, 301, 334, 390, 330, 320]
-            },
-            {
-                name: '线上其他广告',
-                type: 'line',
-                stack: '总量',
-                data: [820, 932, 901, 934, 1290, 1330, 1320]
-            }
-            ]
+            series: [
+                {
+                    name: '自然订单',
+                    type: 'line',
+                    stack: '总量',
+                    data: [120, 132, 101, 134, 90, 230, 210]
+                },
+                {
+                    name: '微信粉丝',
+                    type: 'line',
+                    stack: '总量',
+                    data: [220, 182, 191, 234, 290, 330, 310]
+                },
+                {
+                    name: '微信活跃粉丝',
+                    type: 'line',
+                    stack: '总量',
+                    data: [150, 232, 201, 154, 190, 330, 410]
+                },
+                {
+                    name: '微信广告',
+                    type: 'line',
+                    stack: '总量',
+                    data: [320, 332, 301, 334, 390, 330, 320]
+                },
+                {
+                    name: '线上其他广告',
+                    type: 'line',
+                    stack: '总量',
+                    data: [820, 932, 901, 934, 1290, 1330, 1320]
+                }
+            ],
+            color: ['#0cc2a9', '#17f9a8', '#34d4e3', '#7b5eea', '#00f0ff']
         },
         {
             title: {
-              text: '线上订单成交量（Daily online order by souce））'
+              text: '线上订单成交量'
             },
             legend: {
                 top: 40,
@@ -108,11 +110,12 @@ export default {
                 stack: '总量',
                 data: [820, 932, 901, 934, 1290, 13, 1320]
               }
-            ]
+            ],
+            color: ['#0cc2a9', '#17f9a8', '#34d4e3', '#7b5eea', '#00f0ff']
         },
         {
             title: {
-                text: '线下订单受线上活动影响（Offline order impacted by online activity）'
+                text: '线下订单受线上活动影响'
             },
             tooltip : {
                 trigger: 'axis',
@@ -154,15 +157,18 @@ export default {
                     name:'受线上活动影响比例',
                     type:'line',
                     stack: '总量',
-                    areaStyle: {normal: {}},
+                    smooth:true,
+                    areaStyle: {normal: {
+                        opacity: .1
+                    }},
                     data:[12, 13, 10, 13, 9, 23, 21]
                 }
             ],
-            color: ['rgb(59, 126, 206)']
+            color: ['#1cc6af']
         },
         {
             title: {
-                text: '线上订单受线下活动影响（Online order impacted by offline activity）'
+                text: '线上订单受线下活动影响'
             },
             tooltip : {
                 trigger: 'axis',
@@ -204,15 +210,18 @@ export default {
                     name:'受线下活动影响比例',
                     type:'line',
                     stack: '总量',
-                    areaStyle: {normal: {}},
+                    smooth:true,
+                    areaStyle: {normal: {
+                        opacity: .1
+                    }},
                     data:[30, 53, 20, 18, 39, 43, 21]
                 }
             ],
-            color: ['rgb(214, 166, 78)']
+            color: ['#1cc6af']
         },
         {
             title: {
-                text: '高效率店铺（High Value store）'
+                text: '高效率店铺'
             },
             tooltip: {
                 trigger: 'axis',
@@ -245,7 +254,8 @@ export default {
                     type: 'bar',
                     data: [918203, 823489, 729034, 604970, 571744, 530230, 403212, 201231, 101238]
                 }
-            ]
+            ],
+            color: ['#34d4e3']
         }
     ]
 }

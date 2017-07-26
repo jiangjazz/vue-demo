@@ -1,5 +1,3 @@
-<style lang="scss">
-</style>
 <template>
     <div class="data-order">
         <DataNav :title="title" :items="items"></DataNav>

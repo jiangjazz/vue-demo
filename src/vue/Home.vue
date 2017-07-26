@@ -1,37 +1,41 @@
 <style lang="scss" scoped>
-    .home{
-        padding: 20px 25px;
+    .topTitle{
+        padding: 30px 30px 20px 30px;
+        background: $white;
+        .title{
+            font-weight: bold;
+            font-size: $f-h2;
+        }
+        .ivu-btn{
+            width: 80px;
+        }
     }
     .echart1{
         padding: 10px;
         background: #ffffff;
-        border-top: 5px solid rgb(111, 182, 133);
     }
     .echart2{
         padding: 10px;
         background: #ffffff;
-        border-top: 5px solid rgb(189, 65, 30);
     }
     .echart3{
         padding: 10px;
         background: #ffffff;
-        border-top: 5px solid rgb(59, 126, 206);
     }
     .echart4{
         padding: 10px;
         background: #ffffff;
-        border-top: 5px solid rgb(214, 166, 78);
     }
     .echart5{
         padding: 10px;
         background: #ffffff;
-        border-top: 5px solid rgb(112, 250, 206);
     }
     .echart6{
         padding: 10px;
+        height: 420px;
         background: #ffffff;
-        border-top: 5px solid rgb(239, 113, 152);
         img{
+            display: inline-block;
             margin:auto;
             max-width: 100%;
         }
@@ -40,62 +44,72 @@
 <template>
     <div class="home">
 
-        <div class="f-cb" style="paddingBottom: 10px">
-            <Button :class="'f-fr'" type="ghost" size="small" icon="android-calendar">昨天</Button>
+        <div class="f-cb topTitle" style="paddingBottom: 10px">
+            <span class="title">首页</span>
+            <Button-group class="f-fr">
+                <Button type="success">昨天</Button>
+                <Button>最近七天</Button>
+                <Button>最近一月</Button>
+            </Button-group>
         </div>
 
-        <Row style="paddingBottom: 30px">
-            <Col span="1">&nbsp;</Col>
-            <Col span="5">
-                <img :src="home_1" height="78" alt="">
+
+        <Row style="padding: 20px;">
+            <Col span="6" style="padding: 0 10px;">
+                <img :src="home_1" width="100%" alt="">
             </Col>
-            <Col span="5" class="f-cb">
-                <img class="f-fr" :src="home_2" height="78" alt="">
+            <Col span="6" style="padding: 0 10px;">
+                <img :src="home_2" width="100%" alt="">
             </Col>
-            <Col span="2">&nbsp;</Col>
-            <Col span="5">
-                <img :src="home_3" height="78" alt="">
+            <Col span="6" style="padding: 0 10px;">
+                <img :src="home_3" width="100%" alt="">
             </Col>
-            <Col span="5" class="f-cb">
-                <img class="f-fr" :src="home_4" height="78" alt="">
+            <Col span="6" style="padding: 0 10px;">
+                <img :src="home_4" width="100%" alt="">
             </Col>
         </Row>
 
-        <Row style="paddingBottom: 30px">
-            <Col span="1">&nbsp;</Col>
-            <Col class="echart1" span="10" >
-                <Echart :options="echartsOpts[0]">
-                </Echart>
+        <Row style="padding: 15px 20px;">
+            <Col span="12" style="padding: 0 10px;">
+                <div class="echart1">
+                    <Echart :options="echartsOpts[0]">
+                    </Echart>
+                </div>
             </Col>
-            <Col span="2">&nbsp;</Col>
-            <Col class="echart2" span="10">
-                <Echart :options="echartsOpts[1]">
-                </Echart>
-            </Col>
-        </Row>
-
-        <Row style="paddingBottom: 30px">
-            <Col span="1">&nbsp;</Col>
-            <Col class="echart3" span="10" >
-                <Echart :options="echartsOpts[2]">
-                </Echart>
-            </Col>
-            <Col span="2">&nbsp;</Col>
-            <Col class="echart4" span="10">
-                <Echart :options="echartsOpts[3]">
-                </Echart>
+            <Col span="12" style="padding: 0 10px;">
+                <div class="echart2">
+                    <Echart :options="echartsOpts[1]">
+                    </Echart>
+                </div>
             </Col>
         </Row>
 
-        <Row style="paddingBottom: 30px">
-            <Col span="1">&nbsp;</Col>
-            <Col class="echart5" span="10" >
-                <Echart :options="echartsOpts[4]">
-                </Echart>
+        <Row style="padding: 15px 20px;">
+            <Col span="12" style="padding: 0 10px;">
+                <div class="echart3">
+                    <Echart :options="echartsOpts[2]">
+                    </Echart>
+                </div>
             </Col>
-            <Col span="2">&nbsp;</Col>
-            <Col class="echart6" span="10">
-                <img :src="home_member" alt="" height="400" />
+            <Col span="12" style="padding: 0 10px;">
+                <div class="echart4">
+                    <Echart :options="echartsOpts[3]">
+                    </Echart>
+                </div>
+            </Col>
+        </Row>
+
+        <Row style="padding: 15px 20px;">
+            <Col span="12" style="padding: 0 10px;">
+                <div class="echart5">
+                    <Echart :options="echartsOpts[4]">
+                    </Echart>
+                </div>
+            </Col>
+            <Col span="12" style="padding: 0 10px;">
+                <div class="echart6">
+                    <img :src="home_member" alt="" width="100%" height="400" />
+                </div>
             </Col>
         </Row>
 
