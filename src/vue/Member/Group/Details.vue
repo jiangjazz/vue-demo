@@ -1,8 +1,8 @@
 <style lang="scss">
 .member-group-details{
     .actions{
-        padding: 0 20px;
-        margin-bottom: 10px;
+        display: inline;
+        margin-left: 20px;
     }
     .checkbox-tab{
         width: 80px;
@@ -13,10 +13,6 @@
     .sub-title{
         font-size: 14px;
         line-height: 2em;
-    }
-    .actionbtn{
-        margin: 5px;
-        width: 60px;
     }
     .vertical-center-modal{
         display: flex;
@@ -30,23 +26,23 @@
 </style>
 <template>
     <div class="member-group-details">
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
 
-        <div class="u-breadcrumb">
+        <!-- <div class="u-breadcrumb">
             <router-link to="/member/group/list" class="item">会员分组</router-link>
             <span class="separator">></span>
             <span class="item active">详情</span>
-        </div>
-
-        <TableTemp :tableHead="tableHead" :tableData="tableData">
-            <div class="actions" slot="actions">
-                <h2>{{ id }}</h2>
-                <div class="sub-title">
-                    总共 {{ item.num }} 人，已选中 0 人
-                    <Button @click="modal1 = true" class="actionbtn" type="primary" shape="circle" size="small">加标签</Button>
-                    <Button class="actionbtn" type="primary" shape="circle" size="small">删除</Button>
+        </div> -->
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData" :total="item.num">
+                <div class="actions" slot="actions">
+                    <Button-group>
+                        <Button @click="modal1 = true" class="actionbtn" size="small" icon="ios-pricetag" title="加标签"></Button>
+                        <Button class="actionbtn" size="small" icon="android-delete" title="删除"></Button>
+                    </Button-group>
                 </div>
-            </div>
-        </TableTemp>
+            </TableTemp>
+        </div>
 
         <!-- 导出 -->
         <Modal
@@ -71,16 +67,19 @@
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 
 import datas from '@/datas/memberGroupDetails.js'
 export default {
     name: 'memberGroupDetails',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         return {
+
             tableHead: [
                 {
                     title: '全选',
@@ -155,6 +154,16 @@ export default {
         },
         item() {
             return this.$route.query
+        },
+        breadcrumbList() {
+            return [
+                {
+                    text: '会员分组',
+                    to: '/member/group/list'
+                },{
+                    text: this.$route.params.id
+                }
+            ]
         }
     }
 }

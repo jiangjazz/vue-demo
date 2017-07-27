@@ -1,20 +1,26 @@
 <style lang="scss" scoped>
     .member-fans-details{
         .details_content{
-            padding: 20px;
+            padding: 15px 20px;
+            background-color: $bg-content;
+            @include box-shadow(1px 1px 5px $shadow);
+        }
+        .col-left,
+        .col-right{
+            background-color: $white;
         }
         .details-list{
             padding: 0;
             border: 1px solid #f1f1f1;
             img{
                 display: block;
-                width: 100%;
-                height: 100%;
+                margin: 20px auto;
+                width: 120px;
                 outline: 0;
             }
             dd{
-                padding: 10px 0;
-                text-indent: 2em;
+                padding: 10px 20px;
+                // text-indent: 2em;
                 border-top: 1px solid #f1f1f1;
                 font-size: 14px;
                 line-height: 32px;
@@ -23,9 +29,21 @@
                     vertical-align: middle;
                 }
             }
-        }
-        .col-right{
-            border: 1px solid #f1f1f1;
+            .t_name{
+                color: $text-normal;
+                font-size: $f-h4;
+            }
+            .t_id{
+                color: $text-disabled;
+                font-size: $f-h5;
+                line-height: 2em;
+            }
+            .t_tags{
+                margin: 10px auto;
+            }
+            .span{
+                font-weight: bold;
+            }
         }
     }
 </style>
@@ -33,39 +51,49 @@
     <div class="member-fans-details">
         <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
         <div class="details_content">
-            <Row class="u-box-block">
-                <Col span="9">
+            <Row>
+                <Col span="9" class="col-left">
                     <dl class="details-list">
-                        <dt>
-                            <img :src="member_details_1" />
+                        <dt class="f-tac">
+                            <div class="">
+                                <img :src="member_head" />
+                            </div>
+                            <p class="t_name">Fancy Moon</p>
+                            <p class="t_id">ID: ASFHO33233WEREW </p>
+                            <div class="t_tags">
+                                <Button class="purple" size="small" shape="circle">VIP</Button>
+                                <Button class="success" size="small" shape="circle">微信控</Button>
+                                <Button class="warning" size="small" shape="circle">活跃</Button>
+                                <Button class="primary" size="small" shape="circle">高价值</Button>
+                            </div>
                         </dt>
                         <dd>
                             近30天订单量
-                            <Button class="f-fr" type="primary" shape="circle">23</Button>
+                            <span class="f-fr span">23</span>
                         </dd>
                         <dd>
                             近30天订单金额
-                            <Button class="f-fr" type="primary" shape="circle">￥2,344.00</Button>
+                            <span class="f-fr span">￥2,344.00</span>
                         </dd>
                         <dd>
                             回复消息
-                            <Button class="f-fr" type="primary" shape="circle">43</Button>
+                            <span class="f-fr span">43</span>
                         </dd>
                         <dd>
                             点击菜单
-                            <Button class="f-fr" type="primary" shape="circle">76</Button>
+                            <span class="f-fr span">76</span>
                         </dd>
                         <dd>
                             查阅图文消息
-                            <Button class="f-fr" type="primary" shape="circle">143</Button>
+                            <span class="f-fr span">143</span>
                         </dd>
                         <dd>
                             关注日期
-                            <Button class="f-fr" type="primary" shape="circle">2017-01-23</Button>
+                            <span class="f-fr span">2017-01-23</span>
                         </dd>
                         <dd>
                             所在地
-                            <Button class="f-fr" type="primary" shape="circle">中国 上海</Button>
+                            <span class="f-fr span">中国 上海</span>
                         </dd>
                     </dl>
                 </Col>
@@ -81,8 +109,8 @@
     </div>
 </template>
 <script>
-import member_details_1 from '@/assets/data/member_details_1.png'
-import member_details_2 from '@/assets/data/member_details_2.png'
+import member_head from '@/assets/data/member_head.png'
+import member_details_2 from '@/assets/data/member_details_2.jpg'
 
 import Mybreadcrumb from '@/components/Breadcrumb.vue'
 // import datas from '@/datas/dataMemberFans.js'
@@ -102,7 +130,7 @@ export default {
                     text: '详情'
                 }
             ],
-            member_details_1,
+            member_head,
             member_details_2
         }
     }

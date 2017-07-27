@@ -43,17 +43,6 @@
     padding: 20px;
     background-color: $bg-content;
 }
-.ivu-btn{
-    &:hover{
-        color: $main;
-        border-color: $main;
-    }
-    &-success{
-        &:hover{
-            color: $white;
-        }
-    }
-}
 .ivu-input{
     &:hover{
         border-color: $main;
@@ -150,6 +139,28 @@
     margin-bottom: 0;
 }
 .ivu-btn{
+    // reset
+    &:hover{
+        color: $main;
+        border-color: $main;
+    }
+    &-success{
+        &:hover{
+            color: $white;
+        }
+    }
+    &-primary,
+    &.main{
+        color: $white;
+        border-color: $main;
+        background-color: $main;
+        &:hover{
+            color: $white;
+            border-color: $main-hover;
+            background-color: $main-hover;
+        }
+    }
+    // new
     &.purple{
         color: $white;
         background-color: $purple;
@@ -158,6 +169,48 @@
             color: $white;
             background-color: $purple-hover;
             border-color: $purple-hover;
+        }
+    }
+    &.success{
+        color: $white;
+        background-color: $green;
+        border-color: $green;
+        &:hover{
+            color: $white;
+            background-color: $green-hover;
+            border-color: $green-hover;
+        }
+    }
+    &.warning{
+        color: $white;
+        background-color: $orange;
+        border-color: $orange;
+        &:hover{
+            color: $white;
+            background-color: $orange-hover;
+            border-color: $orange-hover;
+        }
+    }
+    &.primary{
+        color: $white;
+        background-color: $blue;
+        border-color: $blue;
+        &:hover{
+            color: $white;
+            background-color: $blue-hover;
+            border-color: $blue-hover;
+        }
+    }
+}
+
+.ivu-btn-group{
+    &:not(.ivu-btn-group-vertical){
+        .ivu-btn-primary:first-child:not(:last-child){
+            border-right-color: $main;
+        }
+        .ivu-btn-primary+.ivu-btn,
+        .ivu-btn-primary:last-child:not(:first-child){
+            border-left-color: $main;
         }
     }
 }

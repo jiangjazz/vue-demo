@@ -1,21 +1,16 @@
 <style lang="scss">
 .member-group-list{
     .actions{
-        padding: 0 20px;
-        margin-bottom: 10px;
-    }
-    .actionbtn{
-        margin-left: 10px;
-        float: right;
+        display: inline;
+        margin-left: 20px;
     }
     .checkbox-tab{
-        width: 80px;
-        .ivu-table-cell{
-            width: 80px;
-        }
+        width: 70px;
+        border-right: 1px solid $border-default;
     }
     .action-tab{
-        width: 260px;
+        width: 180px;
+        border-left: 1px solid $border-default;
     }
     .vertical-center-modal{
         display: flex;
@@ -30,18 +25,18 @@
 </style>
 <template>
     <div class="member-group-list">
-
-        <div class="u-breadcrumb">
-            <span class="item active">会员分组</span>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
+        <div class="m-table-ct">
+            <TableTemp :rowJump="rowJump" :tableHead="tableHead" :tableData="tableData">
+                <div class="actions" slot="actions">
+                    <Button-group>
+                        <Button class="actionbtn" size="small" icon="ios-folder" title="添加分组"></Button>
+                        <Button class="actionbtn" size="small" icon="ios-cloud-download" title="导入数据"></Button>
+                        <Button @click="modal1 = true" class="actionbtn" size="small" icon="ios-cloud-upload" title="导出数据"></Button>
+                    </Button-group>
+                </div>
+            </TableTemp>
         </div>
-
-        <TableTemp :rowJump="rowJump" :tableHead="tableHead" :tableData="tableData">
-            <div class="actions f-cb" slot="actions">
-                <Button class="actionbtn" shape="circle" type="primary">添加分组</Button>
-                <Button class="actionbtn" shape="circle" type="primary">导入数据</Button>
-                <Button @click="modal1 = true" class="actionbtn" shape="circle" type="primary">导出数据</Button>
-            </div>
-        </TableTemp>
 
         <!-- 导出 -->
         <Modal
@@ -85,22 +80,30 @@
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 
 import datas from '@/datas/memberGroup.js'
 export default {
     name: 'memberGroupList',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         let _this = this
 
         return {
+            breadcrumbList: [
+                {
+                    text: '会员分组'
+                }
+            ],
             tableHead: [
                 {
                     title: '全选',
                     key: 'checkbox',
+                    className: 'checkbox-tba',
                     // type: 'selection',
                     render(createElement, obj) {
                         return createElement( 'div', {
@@ -168,7 +171,8 @@ export default {
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'ios-cloud-upload'
                                 },
                                 style: 'margin: 5px;',
                                 on: {
@@ -176,33 +180,36 @@ export default {
                                         _this.modal1 = true
                                     }
                                 }
-                            }, '导出'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'loop'
                                 },
                                 style: 'margin: 5px;'
-                            }, '同步'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'edit'
                                 },
                                 style: 'margin: 5px;'
-                            }, '编辑'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'android-delete'
                                 },
                                 style: 'margin: 5px;'
-                            }, '删除')
+                            })
                         ])
                     },
                 }

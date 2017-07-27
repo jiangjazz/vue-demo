@@ -34,18 +34,19 @@
                 <Select size="small" value="15" style="width:45px" placeholder="">
                     <Option v-for="item in SelectOpt" :value="item.value" :key="item">{{ item.text }}</Option>
                 </Select>
-                数据,
+                数据
                 <template v-if="total">
                     ，共
                     <span :class="prefixCls+'-total'">{{ total }}</span>条数据
                 </template>
+                <slot name="actions"></slot>
             </div>
 
             <div :class="prefixCls+'-search'">
                 <Input icon="ios-search" placeholder="请输入关键词搜索" style="width: 200px"></Input>
             </div>
         </div>
-        <slot name="actions"></slot>
+        <!-- <slot name="actions"></slot> -->
         <!-- 表格区域 -->
         <Table :columns="tableHead" :data="tableData" @on-row-click="onRowClick"></Table>
 
