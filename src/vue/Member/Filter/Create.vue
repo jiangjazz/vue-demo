@@ -1,59 +1,68 @@
 <style lang="scss">
 .member-filter-create{
+    .filterFrom_ct{
+        padding: 20px;
+    }
     .filterFrom{
-        margin: auto;
+        margin: 20px auto;
         padding: 10px 20px;
         max-width: 800px;
+        background-color: $white;
     }
     .action-tab{
+        width: 80px;
+    }
+    .actBtn{
         width: 80px;
     }
 }
 </style>
 <template>
     <div class="member-filter-create">
-        <div class="u-breadcrumb">
-            <router-link to="/member/filter" class="item">过滤器</router-link>
-            <span class="separator">></span>
-            <span class="item active">创建过滤器</span>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
+
+        <Alert closable>过滤器是根据所设定的多种条件组合，将符合条件的数据筛选出来的工具。</Alert>
+        <div class="filterFrom_ct">
+            <div class="u-box-block">
+                <Form class="filterFrom " :model="formItem" label-position="left" :label-width="100">
+                    <Form-item label="过滤器目标">
+                        <Select style="width: 350px;" v-model="formItem.select" placeholder="请选择过滤器应用目标（会员、微信粉丝、店铺、销售员...">
+                            <Option value="member">会员</Option>
+                            <Option value="weixinfansi">微信粉丝</Option>
+                            <Option value="shops">店铺</Option>
+                            <Option value="saler">销售员</Option>
+                        </Select>
+                    </Form-item>
+
+                    <Form-item label="过滤规则" style="margin-bottom: 0;">
+                        <!-- 表格区域 -->
+                        <Table style="margin-bottom: 24px;" border :columns="tableHead" :data="tableData"></Table>
+                    </Form-item>
+
+                    <Form-item label="过滤器名称">
+                        <Input style="width: 350px;" v-model="formItem.input" placeholder="请为该过滤器命名"></Input>
+                    </Form-item>
+                    <Form-item>
+                        <Button class="actBtn" type="primary">提交</Button>
+                        <Button class="actBtn" type="ghost" style="margin-left: 8px">取消</Button>
+                    </Form-item>
+                </Form>
+            </div>
         </div>
 
-        <Alert style="margin-top: -10px;" closable>过滤器是根据所设定的多种条件组合，将符合条件的数据筛选出来的工具。</Alert>
-
-        <Form class="filterFrom" :model="formItem" label-position="left" :label-width="100">
-            <Form-item label="过滤器目标">
-                <Select style="width: 350px;" v-model="formItem.select" placeholder="请选择过滤器应用目标（会员、微信粉丝、店铺、销售员...">
-                    <Option value="member">会员</Option>
-                    <Option value="weixinfansi">微信粉丝</Option>
-                    <Option value="shops">店铺</Option>
-                    <Option value="saler">销售员</Option>
-                </Select>
-            </Form-item>
-
-            <Form-item label="过滤规则">
-                <!-- 表格区域 -->
-                <Table style="margin-bottom: 24px;" border :columns="tableHead" :data="tableData"></Table>
-            </Form-item>
-
-            <Form-item label="过滤器名称">
-                <Input style="width: 350px;" v-model="formItem.input" placeholder="请为该过滤器命名"></Input>
-            </Form-item>
-            <Form-item>
-                <Button type="primary">提交</Button>
-                <Button type="ghost" style="margin-left: 8px">取消</Button>
-            </Form-item>
-        </Form>
     </div>
 </template>
 <script>
 
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
+
 export default {
     name: 'memberFilterCreate',
     components: {
+        Mybreadcrumb,
     },
     data() {
         const _this = this
-
 
         // 构建listtab
         function listRender(createElement, obj, listName){
@@ -74,6 +83,15 @@ export default {
         }
 
         return {
+            breadcrumbList: [
+                {
+                    text: '过滤器',
+                    to: '/member/filter'
+                },
+                {
+                    text: '创建过滤器'
+                }
+            ],
             relationList: [
                 {
                     value: 'and',
@@ -150,10 +168,11 @@ export default {
                     render(createElement, obj) {
                         return createElement('Button', {
                             style: {
-                                fontSize: '20px'
+                                fontSize: '20px',
+                                border: 'none'
                             },
                             props: {
-                                type: 'text',
+                                type: 'ghost',
                                 shape: 'circle',
                                 size: 'large',
                                 icon: obj.row.action === 'isnew'? 'android-remove-circle': 'android-add-circle'

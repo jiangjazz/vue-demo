@@ -1,5 +1,8 @@
 <style lang="scss">
     .member-push-create{
+        .filterFrom_ct{
+            padding: 20px;
+        }
         .filterFrom{
             margin: auto;
             padding: 10px 20px;
@@ -7,17 +10,19 @@
             min-width: 800px;
             max-width: 1200px;
         }
+        .actBtn{
+            width: 80px;
+        }
     }
 </style>
 <template>
     <div class="member-push-create">
-        <div class="u-breadcrumb">
-            <span class="item active">数据推送</span>
-        </div>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
 
-        <Alert style="margin-top: -10px;" closable>数据推送器是将选定的数据，以固定的频率推送的目标服务器中。从而帮助企业实现自动化营销和管理的需求。</Alert>
-
-        <Form class="filterFrom" :model="formItem" label-position="left" :label-width="100">
+        <Alert closable>数据推送器是将选定的数据，以固定的频率推送的目标服务器中。从而帮助企业实现自动化营销和管理的需求。</Alert>
+        <div class="filterFrom_ct">
+            <div class="u-box-block">
+                <Form class="filterFrom" :model="formItem" label-position="left" :label-width="100">
             <Form-item label="数据推送目标组">
                 <Row>
                     <Col span="14">
@@ -118,21 +123,30 @@
             </Form-item>
 
             <Form-item>
-                <Button type="warning">测试</Button>
-                <Button type="primary" style="margin-left: 8px">保存</Button>
-                <Button type="ghost" style="margin-left: 8px">取消</Button>
+                <Button class="actBtn" type="warning">测试</Button>
+                <Button class="actBtn" type="primary" style="margin-left: 8px">保存</Button>
+                <Button class="actBtn" type="ghost" style="margin-left: 8px">取消</Button>
             </Form-item>
         </Form>
-
+            </div>
+        </div>
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
+
 export default {
     name: 'memberPushCreate',
     components: {
+        Mybreadcrumb,
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '数据推送'
+                }
+            ],
             formItem: {
                 input: '',
                 select: '',
