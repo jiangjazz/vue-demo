@@ -4,34 +4,36 @@
         padding: 10px 20px;
     }
     .list{
-        padding: 0 20px;
+        padding: 0 10px;
     }
     .myitem{
         display: inline-block;
-        margin: 10px 1%;
-        width: 23%;
+        width: 25%;
         vertical-align: middle;
+        float: left;
+        padding: 10px;
     }
 }
 </style>
 <template>
     <div class="member-filter-list">
-
-        <div class="u-breadcrumb">
-            <span class="item active">过滤器</span>
-        </div>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
         <div class="actionsct f-cb">
             <router-link to="/member/filter/create">
-                <Button class="f-fr" type="primary">创建过滤器</Button>
+                <Button class="f-fr" type="primary" icon="android-bar">创建过滤器</Button>
             </router-link>
         </div>
 
-        <div class="list">
-            <Myitem :key="itemKeyPrex+index" :datas="item" :index="index" classes="myitem" v-for="(item, index) in items"></Myitem>
+        <div class="list f-cb">
+            <div class="myitem" v-for="(item, index) in items" :key="itemKeyPrex+index">
+                <Myitem :datas="item" :index="index" ></Myitem>
+            </div>
+
         </div>
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import Myitem from './components/Item.vue'
 
 import datas from '@/datas/memberFilter.js'
@@ -39,10 +41,16 @@ import datas from '@/datas/memberFilter.js'
 export default {
     name: 'memberFilterList',
     components: {
+        Mybreadcrumb,
         Myitem
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '过滤器'
+                }
+            ],
             itemKeyPrex: Math.random(),
             items: datas.items
         }

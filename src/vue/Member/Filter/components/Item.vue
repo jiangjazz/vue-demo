@@ -2,34 +2,39 @@
 .list-item{
     position: relative;
     overflow: hidden;
+    @include box-shadow(1px 1px 5px $shadow);
     &-head{
         padding: 15px 16px;
-        color: #ffffff;
-        font-size: 16px;
+        color: $white;
+        font-size: $f-h4;
         font-weight: bold;
+        @include background-image($purple $purple-hover);
     }
     &-ct{
         padding: 8px 16px;
-        background-color: #ffffff;
+        background-color: $white;
         .details{
             .title{
                 padding: 10px 0;
                 line-height: 2.5em;
                 font-weight: bold;
-                font-size: 14px;
+                font-size: $f-h5;
+                &_target{
+                    color: $main;
+                }
             }
             .lict{
-                max-height: 60px;
+                height: 60px;
                 overflow: hidden;
             }
             .li{
-                font-size: 12px;
+                font-size: $f-h6;
                 line-height: 20px;
             }
             .time{
                 margin-top: 10px;
                 line-height: 2em;
-                font-size: 12px;
+                font-size: $f-h6;
                 color: #888888;
             }
         }
@@ -43,6 +48,9 @@
             font-size: 14px;
             font-weight: bold;
             line-height: 2em;
+            &_num{
+                color: $main;
+            }
         }
         .usetime{
             font-size: 12px;
@@ -82,12 +90,14 @@
 </style>
 <template>
     <div :class="itemCls">
-        <div :class="prefixCls+'-head'" :style="{backgroundColor: color[index]}">
+        <div :class="prefixCls+'-head'" :style="headStyle">
             {{ datas.name }}
         </div>
         <div :class="prefixCls+'-ct'">
             <div class="details">
-                <div class="title">应用对象：{{ datas.target }}</div>
+                <div class="title">应用对象：
+                    <span class="title_target">{{ datas.target }}</span>
+                </div>
                 <ul class="lict">
                     <li class="li" v-for="ite in datas.conditions ">{{ ite }}</li>
                 </ul>
@@ -96,7 +106,8 @@
         </div>
         <div :class="prefixCls+'-foot'">
             <div class="result">
-                筛选结果：{{ datas.result }}
+                筛选结果：
+                <span class="result_num">{{ datas.result }}</span>
             </div>
             <div class="usetime">
                 应用时间：{{ datas.usetime }}
@@ -146,6 +157,11 @@ export default {
                 `${prefixCls}`,
                 `${this.classes}`
             ]
+        },
+        headStyle() {
+            return {
+                // backgroundColor: color[index]
+            }
         }
     },
     methods: {

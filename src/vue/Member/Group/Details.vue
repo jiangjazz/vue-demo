@@ -5,7 +5,8 @@
         margin-left: 20px;
     }
     .checkbox-tab{
-        width: 80px;
+        width: 70px;
+        border-right: 1px solid $border-default;
     }
     .time-tab{
         width: 250px;

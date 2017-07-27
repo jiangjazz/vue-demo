@@ -103,7 +103,7 @@ export default {
                 {
                     title: '全选',
                     key: 'checkbox',
-                    className: 'checkbox-tba',
+                    className: 'checkbox-tab',
                     // type: 'selection',
                     render(createElement, obj) {
                         return createElement( 'div', {
