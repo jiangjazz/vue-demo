@@ -191,7 +191,7 @@
                     <Menu-item name="2-3">会员分组</Menu-item>
                 </router-link>
                 <router-link class="routerClass" to="/member/filter">
-                    <Menu-item name="2-4">过滤器</Menu-item>
+                    <Menu-item name="2-4">多维分析</Menu-item>
                 </router-link>
                 <router-link class="routerClass" to="/member/push">
                     <Menu-item name="2-5">数据推送</Menu-item>

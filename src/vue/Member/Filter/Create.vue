@@ -21,12 +21,12 @@
     <div class="member-filter-create">
         <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
 
-        <Alert closable>过滤器是根据所设定的多种条件组合，将符合条件的数据筛选出来的工具。</Alert>
+        <Alert closable>多维分析是根据所设定的多种条件组合，将符合条件的数据筛选出来的工具。</Alert>
         <div class="filterFrom_ct">
             <div class="u-box-block">
                 <Form class="filterFrom " :model="formItem" label-position="left" :label-width="100">
-                    <Form-item label="过滤器目标">
-                        <Select style="width: 350px;" v-model="formItem.select" placeholder="请选择过滤器应用目标（会员、微信粉丝、店铺、销售员...">
+                    <Form-item label="多维分析目标">
+                        <Select style="width: 350px;" v-model="formItem.select" placeholder="请选择多维分析应用目标（会员、微信粉丝、店铺、销售员...">
                             <Option value="member">会员</Option>
                             <Option value="weixinfansi">微信粉丝</Option>
                             <Option value="shops">店铺</Option>
@@ -34,13 +34,13 @@
                         </Select>
                     </Form-item>
 
-                    <Form-item label="过滤规则" style="margin-bottom: 0;">
+                    <Form-item label="规则" style="margin-bottom: 0;">
                         <!-- 表格区域 -->
                         <Table style="margin-bottom: 24px;" border :columns="tableHead" :data="tableData"></Table>
                     </Form-item>
 
-                    <Form-item label="过滤器名称">
-                        <Input style="width: 350px;" v-model="formItem.input" placeholder="请为该过滤器命名"></Input>
+                    <Form-item label="名称">
+                        <Input style="width: 350px;" v-model="formItem.input" placeholder="请为该多维分析命名"></Input>
                     </Form-item>
                     <Form-item>
                         <Button class="actBtn" type="primary">提交</Button>
@@ -85,11 +85,11 @@ export default {
         return {
             breadcrumbList: [
                 {
-                    text: '过滤器',
+                    text: '多维分析',
                     to: '/member/filter'
                 },
                 {
-                    text: '创建过滤器'
+                    text: '创建多维分析'
                 }
             ],
             relationList: [

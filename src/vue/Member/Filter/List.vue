@@ -20,7 +20,7 @@
         <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
         <div class="actionsct f-cb">
             <router-link to="/member/filter/create">
-                <Button class="f-fr" type="primary" icon="android-bar">创建过滤器</Button>
+                <Button class="f-fr" type="primary" icon="android-bar">创建多维分析</Button>
             </router-link>
         </div>
 
@@ -48,7 +48,7 @@ export default {
         return {
             breadcrumbList: [
                 {
-                    text: '过滤器'
+                    text: '多维分析'
                 }
             ],
             itemKeyPrex: Math.random(),
