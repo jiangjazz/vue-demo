@@ -71,13 +71,13 @@
 
         <Row style="padding: 15px 20px;">
             <Col span="12" style="padding: 0 10px;">
-                <div class="echart1">
+                <div class="echart1 u-box-block">
                     <Echart :options="echartsOpts[0]">
                     </Echart>
                 </div>
             </Col>
             <Col span="12" style="padding: 0 10px;">
-                <div class="echart2">
+                <div class="echart2 u-box-block">
                     <Echart :options="echartsOpts[1]">
                     </Echart>
                 </div>
@@ -86,13 +86,13 @@
 
         <Row style="padding: 15px 20px;">
             <Col span="12" style="padding: 0 10px;">
-                <div class="echart3">
+                <div class="echart3 u-box-block">
                     <Echart :options="echartsOpts[2]">
                     </Echart>
                 </div>
             </Col>
             <Col span="12" style="padding: 0 10px;">
-                <div class="echart4">
+                <div class="echart4 u-box-block">
                     <Echart :options="echartsOpts[3]">
                     </Echart>
                 </div>
@@ -101,13 +101,13 @@
 
         <Row style="padding: 15px 20px;">
             <Col span="12" style="padding: 0 10px;">
-                <div class="echart5">
+                <div class="echart5 u-box-block">
                     <Echart :options="echartsOpts[4]">
                     </Echart>
                 </div>
             </Col>
             <Col span="12" style="padding: 0 10px;">
-                <div class="echart6">
+                <div class="echart6 u-box-block">
                     <img :src="home_member" alt="" width="100%" height="400" />
                 </div>
             </Col>
