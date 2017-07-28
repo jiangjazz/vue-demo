@@ -10,10 +10,12 @@ export default {
             }
         },
         legend: {
+            top: '20',
+            left: '3%',
             data:['邮件','短信']
         },
         grid: {
-            top: '40',
+            top: '60',
             left: '3%',
             right: '4%',
             bottom: '3%',
@@ -35,19 +37,25 @@ export default {
             {
                 name:'邮件',
                 type:'line',
-                stack: '总量',
-                areaStyle: {normal: {}},
+                // stack: '总量',
+                smooth:true,
+                areaStyle: {normal: {
+                    opacity: .1
+                }},
                 data:[120, 132, 101, 134, 90, 230, 210]
             },
             {
                 name:'短信',
                 type:'line',
-                stack: '总量',
-                areaStyle: {normal: {}},
-                data:[220, 182, 191, 234, 290, 330, 310]
+                // stack: '总量',
+                smooth:true,
+                areaStyle: {normal: {
+                    opacity: .1
+                }},
+                data:[80, 182, 91, 234, 290, 330, 310]
             }
         ],
-        color: ['rgb(110, 101, 159)', 'rgb(113, 209, 196)']
+        color: ['#17f9a8', '#7b5eea']
     }, {
         tooltip: {
             trigger: 'axis',
@@ -56,11 +64,12 @@ export default {
             }
         },
         legend: {
-            data: ['邮件', '短信'],
-            left: 0
+            top: '20',
+            left: '3%',
+            data: ['邮件', '短信']
         },
         grid: {
-            top: '40',
+            top: '60',
             left: '3%',
             right: '4%',
             bottom: '3%',
@@ -78,26 +87,35 @@ export default {
             {
                 name: '邮件',
                 type: 'bar',
+                barWidth: 40,
                 data: [9]
             },
             {
                 name: '短信',
                 type: 'bar',
+                barWidth: 40,
                 data: [15]
             }
         ],
-        color: ['rgb(110, 101, 159)', 'rgb(113, 209, 196)']
+        color: ['#17f9a8', '#7b5eea']
     }, {
         tooltip: {
             trigger: 'item',
             formatter: "{a} <br/>{b} : {c}%"
         },
         legend: {
+            top: '20',
+            left: '3%',
+            right: '4%',
             data: ['参与人数','活跃人数'],
-            formatter: '{name}:{value}',
-            top: '30%',
-            right: 0,
-            orient: 'vertical'
+            formatter: '{name}'
+        },
+        grid: {
+            top: '60',
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
         },
         calculable: true,
         series: [
@@ -146,7 +164,7 @@ export default {
                 ]
             }
         ],
-        color: ['rgb(70, 161, 143)', 'rgb(113, 209, 196)']
+        color: ['#0cc2a9', '#17f9a8']
     }, {
         tooltip : {
             trigger: 'axis',
@@ -158,6 +176,7 @@ export default {
             }
         },
         legend: {
+            left: '3%',
             data:['邮件','短信']
         },
         grid: {
@@ -183,19 +202,23 @@ export default {
             {
                 name:'邮件',
                 type:'line',
-                stack: '总量',
-                areaStyle: {normal: {}},
+                smooth:true,
+                areaStyle: {normal: {
+                    opacity: .1
+                }},
                 data:[20, 132, 211, 34, 90, 20, 210]
             },
             {
                 name:'短信',
                 type:'line',
-                stack: '总量',
-                areaStyle: {normal: {}},
+                smooth:true,
+                areaStyle: {normal: {
+                    opacity: .1
+                }},
                 data:[22, 82, 91, 234, 29, 33, 31]
             }
         ],
-        color: ['rgb(110, 101, 159)', 'rgb(113, 209, 196)']
+        color: ['#17f9a8', '#7b5eea']
     }, {
         tooltip: {
             trigger: 'axis',
@@ -206,7 +229,7 @@ export default {
         },
         legend: {
             data: ['邮件', '短信'],
-            left: 0
+            left: '3%',
         },
         grid: {
             top: '40',
@@ -230,15 +253,17 @@ export default {
             {
                 name: '邮件',
                 type: 'bar',
+                barWidth: 40,
                 data: [60]
             },
             {
                 name: '短信',
                 type: 'bar',
+                barWidth: 40,
                 data: [85]
             }
         ],
-        color: ['rgb(110, 101, 159)', 'rgb(113, 209, 196)']
+        color: ['#17f9a8', '#7b5eea']
     }, {
         tooltip: {
             trigger: 'axis',
@@ -248,7 +273,7 @@ export default {
         },
         legend: {
             data: ['邮件', '短信'],
-            left: 0
+            left: '3%',
         },
         grid: {
             top: '40',
@@ -269,15 +294,17 @@ export default {
             {
                 name: '邮件',
                 type: 'bar',
+                barWidth: 40,
                 data: [79]
             },
             {
                 name: '短信',
                 type: 'bar',
+                barWidth: 40,
                 data: [121]
             }
         ],
-        color: ['rgb(110, 101, 159)', 'rgb(113, 209, 196)']
+        color: ['#17f9a8', '#7b5eea']
     }],
     tableData: [{
         name: 'New Gam 2016-07-01',

@@ -1,13 +1,17 @@
 <style lang="scss" scoped>
     .data-activity-marketing{
         padding: 20px 25px;
-        .row1{
-            margin-top: 20px;
-            border-top: 5px solid rgb(243, 157, 57);
-            .rowct{
-                margin-bottom: 20px;
-                padding: 10px 0;
-                background-color: #ffffff;
+        .rowct{
+            margin-bottom: 20px;
+            padding: 10px 0;
+            .col-pad{
+                padding: 0 10px;
+                &:first-child{
+                    padding-left: 0;
+                }
+                &:last-child{
+                    padding-right: 0;
+                }
             }
         }
         .chartTitle{
@@ -25,14 +29,14 @@
             </Select>
             <div class="f-fr">
                 <Date-picker class="f-ib" format="yyyy年MM月dd日" type="date" placeholder="选择日期" style="width: 200px"></Date-picker>
-                ——
+                至
                 <Date-picker class="f-ib" format="yyyy年MM月dd日" type="date" placeholder="选择日期" style="width: 200px"></Date-picker>
             </div>
         </div>
 
-        <div class="row1">
-            <Row class="rowct">
-                <Col span="11">
+        <Row class="rowct">
+            <Col class="col-pad" span="12">
+                <div class="u-box-block">
                     <div class="chartTitle">
                         <Button type="text" size="large">渠道发送趋势
                             <Icon type="ios-help-outline"></Icon>
@@ -41,9 +45,10 @@
                     </div>
                     <Echart :options="echartsOpts[0]" :chartHeight="290">
                     </Echart>
-                </Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="11">
+                </div>
+            </Col>
+            <Col class="col-pad" span="12">
+                <div class="u-box-block">
                     <div class="chartTitle">
                         <Button type="text" size="large">渠道发送次数
                             <Icon type="ios-help-outline"></Icon>
@@ -51,11 +56,13 @@
                     </div>
                     <Echart :options="echartsOpts[1]" :chartHeight="290">
                     </Echart>
-                </Col>
-            </Row>
+                </div>
+            </Col>
+        </Row>
 
-            <Row class="rowct">
-                <Col span="11">
+        <Row class="rowct">
+            <Col class="col-pad" span="8">
+                <div class="u-box-block">
                     <div class="chartTitle">
                         <Button type="text" size="large">活跃转化漏斗
                             <Icon type="ios-help-outline"></Icon>
@@ -63,9 +70,10 @@
                     </div>
                     <Echart :options="echartsOpts[2]" :chartHeight="290">
                     </Echart>
-                </Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="11">
+                </div>
+            </Col>
+            <Col class="col-pad" span="16">
+                <div class="u-box-block">
                     <div class="chartTitle">
                         <Button type="text" size="large">活跃人数趋势
                             <Icon type="ios-help-outline"></Icon>
@@ -73,11 +81,13 @@
                     </div>
                     <Echart :options="echartsOpts[3]" :chartHeight="290">
                     </Echart>
-                </Col>
-            </Row>
+                </div>
+            </Col>
+        </Row>
 
-            <Row class="rowct">
-                <Col span="11">
+        <Row class="rowct">
+            <Col class="col-pad" span="12">
+                <div class="u-box-block">
                     <div class="chartTitle">
                         <Button type="text" size="large">渠道到达率
                             <Icon type="ios-help-outline"></Icon>
@@ -85,9 +95,10 @@
                     </div>
                     <Echart :options="echartsOpts[4]" :chartHeight="290">
                     </Echart>
-                </Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="11">
+                </div>
+            </Col>
+            <Col class="col-pad" span="12">
+                <div class="u-box-block">
                     <div class="chartTitle">
                         <Button type="text" size="large">渠道退订数
                             <Icon type="ios-help-outline"></Icon>
@@ -95,18 +106,18 @@
                     </div>
                     <Echart :options="echartsOpts[5]" :chartHeight="290">
                     </Echart>
-                </Col>
-            </Row>
-
-            <div class="rowct">
-                <div class="chartTitle">
-                    <Button type="text" size="large">渠道发送记录
-                        <Icon type="ios-help-outline"></Icon>
-                    </Button>
                 </div>
-                <!-- 表格区域 -->
-                <Table border :columns="tableHead" :data="tableData"></Table>
+            </Col>
+        </Row>
+
+        <div class="rowct u-box-block">
+            <div class="chartTitle">
+                <Button type="text" size="large">渠道发送记录
+                    <Icon type="ios-help-outline"></Icon>
+                </Button>
             </div>
+            <!-- 表格区域 -->
+            <Table border :columns="tableHead" :data="tableData"></Table>
         </div>
     </div>
 </template>
