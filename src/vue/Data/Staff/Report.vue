@@ -5,24 +5,19 @@
             margin-bottom: 15px;
             font-size: 16px;
             font-weight: bold;
+            text-indent: 20px;
         }
-        .row1{
+        .row{
             margin-top: 20px;
-            padding: 20px 30px;
-            background: #ffffff;
-            border-top: 5px solid rgb(243, 157, 57);
-        }
-        .row2{
-            margin-top: 30px;
-            padding: 20px 30px;
-            background: #ffffff;
-            border-top: 5px solid rgb(239, 113, 152);
-        }
-        .row3{
-            margin-top: 30px;
-            padding: 20px 30px;
-            background: #ffffff;
-            border-top: 5px solid rgb(71, 163, 98);
+            .col-pad{
+                padding: 0 10px;
+                &:first-child{
+                    padding-left: 0;
+                }
+                &:last-child{
+                    padding-right: 0;
+                }
+            }
         }
     }
 </style>
@@ -32,51 +27,49 @@
             <Button :class="'f-fr'">过去7天</Button>
         </div>
 
-        <div class="row1">
-            <div class="row-title">
-                热销门店统计
-            </div>
+        <div class="row">
             <Row>
-                <Col span="11">
-                    <Echart :options="echartsOpts[0]" :chartHeight="320">
-                    </Echart>
+                <Col class="col-pad" span="12">
+                    <div class="u-box-block">
+                        <Echart :options="echartsOpts[0]" :chartHeight="320">
+                        </Echart>
+                    </div>
                 </Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="11">
-                    <Echart :map="'china'" :options="echartsOpts[1]" :chartHeight="320">
-                    </Echart>
+                <Col class="col-pad" span="12">
+                    <div class="u-box-block">
+                        <Echart :map="'china'" :options="echartsOpts[1]" :chartHeight="320">
+                        </Echart>
+                    </div>
                 </Col>
             </Row>
         </div>
 
-        <div class="row2">
+        <div class="row u-box-block">
             <div class="row-title">
                 最佳销售（Top sales）
             </div>
             <Row>
-                <Col span="11">
-                    <img :src="staff_1" alt="" height="321" />
+                <Col span="10">
+                    <img :src="staff_1" alt="" height="490" />
                 </Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="11">
-                    <Echart :options="echartsOpts[2]" :chartHeight="200" style="margin-bottom:10px">
+                <Col span="14">
+                    <Echart :options="echartsOpts[2]" :chartHeight="280" style="margin-bottom:10px">
                     </Echart>
-                    <Echart :options="echartsOpts[3]" :chartHeight="140">
+                    <Echart :options="echartsOpts[3]" :chartHeight="200">
                     </Echart>
                 </Col>
             </Row>
         </div>
 
-        <div class="row3">
+        <div class="row u-box-block">
             <div class="row-title">
                 进步最快的销售
             </div>
             <Row>
-                <Col span="11">
+                <Col span="10">
                     <img :src="staff_2" alt="" height="321" />
                 </Col>
-                <Col span="2">&nbsp;</Col>
-                <Col span="11">
+                <Col span="14">
                     <Echart :options="echartsOpts[4]" :chartHeight="320">
                     </Echart>
                 </Col>

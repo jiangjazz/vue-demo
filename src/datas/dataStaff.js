@@ -5,6 +5,10 @@ function randomData() {
 export default {
     echartsOpts: [
         {
+            title: {
+                text: '热销门店统计',
+                left: '20'
+            },
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -12,7 +16,8 @@ export default {
                 }
             },
             legend: {
-                top: 40,
+                top: '40',
+                left: '3%',
                 data: ['销售金额']
             },
             grid: {
@@ -41,12 +46,12 @@ export default {
                     data: [91820, 82348, 72903, 60470, 57174, 53030, 40322, 20131, 10238]
                 }
             ],
-            color: ['rgb(69, 136, 215)']
+            color: ['#7b5eea']
         },
         {
             title: {
                 text: '各省市门店销售额概览',
-                left: 'left'
+                left: '20'
             },
             tooltip: {
                 trigger: 'item'
@@ -57,7 +62,10 @@ export default {
                 left: 'left',
                 top: 'bottom',
                 text: ['高','低'],           // 文本，默认为数值文本
-                calculable: true
+                inRange: {
+                    color: ['#ffffff', '#a070ec']
+                },
+                calculable : true
             },
             toolbox: {
                 show: true,
@@ -78,6 +86,7 @@ export default {
                     roam: false,
                     label: {
                         normal: {
+                            color: '#7b5eea',
                             show: true
                         },
                         emphasis: {
@@ -132,11 +141,12 @@ export default {
             },
             legend: {
                 top: 10,
+                left: '3%',
                 data: ['满意度']
             },
             grid: {
                 width: '90%',
-                top: '30',
+                top: '40',
                 left: '3%',
                 right: '4%',
                 bottom: '3%',
@@ -172,11 +182,12 @@ export default {
             },
             legend: {
                 top: 10,
+                left: '3%',
                 data: ['满意度']
             },
             grid: {
                 width: '90%',
-                top: '30',
+                top: '50',
                 left: '3%',
                 right: '4%',
                 bottom: '3%',
@@ -207,6 +218,8 @@ export default {
                 trigger: 'axis'
             },
             legend: {
+                top: 10,
+                left: '3%',
                 data:['营销额','营销额（上个周期）']
             },
             grid: {
@@ -227,15 +240,23 @@ export default {
                 {
                     name:'营销额',
                     type:'line',
-                    data:[11286,11000,10472,10252,9988,9284,9064,8932,8812]
+                    smooth:true,
+                    areaStyle: {normal: {
+                        opacity: .1
+                    }},
+                    data:[1286,6000,6772,6252,9988,9284,8064,8932,10812]
                 },
                 {
                     name:'营销额（上个周期）',
                     type:'line',
-                    data:[2257.20,2640.00,3141.60,3280.64,3296.04,3249.40,3806.88,3930.08,2812.01]
+                    smooth:true,
+                    areaStyle: {normal: {
+                        opacity: .1
+                    }},
+                    data:[3257.20,4640.00,4141.60,4280.64,4296.04,4249.40,5806.88,6930.08,8812.01]
                 }
             ],
-            color: ['rgb(102, 167, 246)', 'rgb(174, 226, 135)']
+            color: ['#17f9a8', '#7b5eea']
         }
     ]
 }

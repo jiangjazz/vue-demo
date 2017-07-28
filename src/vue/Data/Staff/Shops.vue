@@ -9,7 +9,9 @@
 <template>
     <div class="data-staff-shops">
         <Alert banner closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
-        <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        </div>
     </div>
 </template>
 <script>

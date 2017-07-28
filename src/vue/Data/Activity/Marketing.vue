@@ -19,6 +19,9 @@
                 vertical-align: middle;
             }
         }
+        .table_ct{
+            padding: 0 10px;
+        }
     }
 </style>
 <template>
@@ -117,7 +120,9 @@
                 </Button>
             </div>
             <!-- 表格区域 -->
-            <Table border :columns="tableHead" :data="tableData"></Table>
+            <div class="table_ct">
+                <Table :columns="tableHead" :data="tableData"></Table>
+            </div>
         </div>
     </div>
 </template>
