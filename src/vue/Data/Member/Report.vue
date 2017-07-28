@@ -8,6 +8,17 @@
         }
         .types{
             margin-bottom: 20px;
+            .img_ct{
+                &:nth-child(1){
+                    padding: 0 10px 0 0;
+                }
+                &:nth-child(2){
+                    padding: 0 5px 0 5px;
+                }
+                &:nth-child(3){
+                    padding: 0 0 0 10px;
+                }
+            }
             img{
                 width: 100%;
             }
@@ -16,60 +27,55 @@
             margin-top: 20px;
             padding: 20px 30px;
             background: #ffffff;
-            border-top: 5px solid rgb(243, 157, 57);
         }
         .row2{
             margin-top: 30px;
             padding: 20px 30px;
             background: #ffffff;
-            border-top: 5px solid rgb(239, 113, 152);
         }
         .row3{
             margin-top: 30px;
             padding: 20px 30px;
             background: #ffffff;
-            border-top: 5px solid rgb(71, 163, 98);
         }
     }
 </style>
 <template>
     <div class="data-member-report">
         <div class="f-cb">
-            <Button :class="'f-fr'">过去7天</Button>
+            <Button class="main f-fr">过去7天</Button>
         </div>
-        <div class="row1">
+        <div class="row1 u-box-block">
             <div class="row-title">
                 会员与粉丝增长情况
             </div>
+            <Row class="types">
+                <Col class="img_ct" span="8">
+                    <img :src="member_1" />
+                </Col>
+                <Col class="img_ct" span="8">
+                    <img :src="member_2" />
+                </Col>
+                <Col class="img_ct" span="8">
+                    <img :src="member_3" />
+                </Col>
+            </Row>
             <Row>
                 <Col span="11">
-                    <Row class="types">
-                        <Col span="7">
-                            <img :src="member_1" height="78" />
-                        </Col>
-                        <Col span="1">&nbsp;</Col>
-                        <Col span="7">
-                            <img :src="member_2" height="78" />
-                        </Col>
-                        <Col span="1">&nbsp;</Col>
-                        <Col span="7">
-                            <img :src="member_3" height="78" />
-                        </Col>
-                    </Row>
                     <Echart :options="echartsOpts[0]" :chartHeight="290">
                     </Echart>
                 </Col>
                 <Col span="2">&nbsp;</Col>
                 <Col span="11">
-                    <Echart :options="echartsOpts[1]" :chartHeight="400">
+                    <Echart :options="echartsOpts[1]" :chartHeight="290">
                     </Echart>
                 </Col>
             </Row>
         </div>
 
-        <div class="row2">
+        <div class="row2 u-box-block">
             <div class="row-title">
-                高影响力会员（KOL）
+                高影响力会员
             </div>
             <Row>
                 <Col span="11">
@@ -83,7 +89,7 @@
             </Row>
         </div>
 
-        <div class="row3">
+        <div class="row3 u-box-block">
             <div class="row-title">
                 会员对订单影响分析
             </div>

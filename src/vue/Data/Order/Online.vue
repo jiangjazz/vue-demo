@@ -8,8 +8,10 @@
 </style>
 <template>
     <div class="data-order-online">
-        <Alert banner closable type="success">最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
-        <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        <Alert banner closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        </div>
     </div>
 </template>
 <script>

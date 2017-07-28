@@ -8,7 +8,7 @@
 </style>
 <template>
     <div class="data-staff-workers">
-        <Alert banner closable type="success">最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
+        <Alert banner closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
         <TableTemp :rowJump="rowJump" :tableHead="tableHead" :tableData="tableData"></TableTemp>
     </div>
 </template>
