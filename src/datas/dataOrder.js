@@ -2,10 +2,14 @@ export default {
     echartsOpts: [
         {
             title: {
-              text: '线上订单成交量（Daily online order by souce））'
+                left: '3%',
+                right: '4%',
+                text: '线上订单成交量'
             },
             legend: {
                 top: 40,
+                left: '3%',
+                right: '4%',
                 data: ['自然订单', '线下体验', '线下接触', '线上广告', '粉丝介绍']
             },
             grid:{
@@ -53,7 +57,8 @@ export default {
                 stack: '总量',
                 data: [820, 932, 901, 934, 1290, 13, 1320]
               }
-            ]
+          ],
+          color: ['#0cc2a9', '#17f9a8', '#34d4e3', '#7b5eea', '#00f0ff']
         },
         {
             title: {
@@ -66,6 +71,9 @@ export default {
                 }
             },
             legend: {
+                top: 20,
+                left: '3%',
+                right: '4%',
                 data: ['线上订单量']
             },
             grid: {
@@ -89,7 +97,7 @@ export default {
                     data: [10, 4, 3, 15, 30, 65, 10, 23]
                 }
             ],
-            color: ['rgb(59, 128, 212)']
+            color: ['#a070ec']
         },
         {
             title: {
@@ -102,6 +110,9 @@ export default {
                 }
             },
             legend: {
+                top: 20,
+                left: '3%',
+                right: '4%',
                 data: ['线上订单量']
             },
             grid: {
@@ -121,17 +132,21 @@ export default {
                 {
                     name: '线上订单量',
                     type: 'bar',
-                    data: [700, 400, 300, 1500, 3000, 2065, 1710, 1023]
+                    data: [700, 400, 300, 1500, 3000, 2065, 1710]
                 }
             ],
-            color: ['rgb(137, 156, 178)']
+            color: ['#34d4e3']
         },
         {
             title: {
-              text: '线下订单成交量（Daily offline order by souce）'
+                left: '3%',
+                right: '4%',
+                text: '线下订单成交量'
             },
             legend: {
                 top: 40,
+                left: '3%',
+                right: '4%',
                 data: ['自然订单', '微信粉丝', '微信活跃粉丝', '微信广告', '线上其他广告']
             },
             grid:{
@@ -179,7 +194,8 @@ export default {
                 stack: '总量',
                 data: [820, 932, 901, 934, 1290, 1330, 120]
             }
-            ]
+            ],
+            color: ['#0cc2a9', '#17f9a8', '#34d4e3', '#7b5eea', '#00f0ff']
         },
         {
             title: {
@@ -192,6 +208,9 @@ export default {
                 }
             },
             legend: {
+                top: 20,
+                left: '3%',
+                right: '4%',
                 data: ['线下订单量']
             },
             grid: {
@@ -215,7 +234,7 @@ export default {
                     data: [10, 4, 3, 15, 30, 65, 10, 23]
                 }
             ],
-            color: ['rgb(79, 121, 47)']
+            color: ['#a070ec']
         },
         {
             title: {
@@ -228,6 +247,9 @@ export default {
                 }
             },
             legend: {
+                top: 20,
+                left: '3%',
+                right: '4%',
                 data: ['线下订单量']
             },
             grid: {
@@ -247,14 +269,15 @@ export default {
                 {
                     name: '线下订单量',
                     type: 'bar',
-                    data: [700, 400, 300, 1500, 3000, 2065, 1710, 1023]
+                    data: [700, 400, 300, 1500, 3000, 2065, 1710]
                 }
             ],
-            color: ['rgb(59, 94, 48)']
+            color: ['#34d4e3']
         },
         {
             title : {
                 top: '10',
+                left: '3%',
                 text: '热销商品分析',
                 x:'center'
             },
@@ -264,13 +287,18 @@ export default {
             },
             legend: {
                 top: '40',
-                data: ['玫珂菲烟熏紫睫毛膏','玫珂菲眼妆固定液','玫珂菲眼部持久防晕底霜','玫珂菲双用水粉霜02号','玫珂菲双用水粉霜06号', '其他']
+                left: '3%',
+                right: '4%',
+                data: ['玫珂菲烟熏紫睫毛膏','玫珂菲眼妆固定液','玫珂菲眼部持久防晕底霜','玫珂菲双用水粉霜02号','玫珂菲双用水粉霜06号', '玫珂菲双用水粉霜08号', '其他'],
+                formatter(name) {
+                    return name.length > 5? name.substr(0, 5) + '……' : name
+                }
             },
             series : [
                 {
                     name: '访问来源',
                     type: 'pie',
-                    radius : '55%',
+                    radius : ['35%', '50%'],
                     center: ['50%', '60%'],
                     data:[
                         {value:335, name:'玫珂菲烟熏紫睫毛膏'},
@@ -278,6 +306,7 @@ export default {
                         {value:234, name:'玫珂菲眼部持久防晕底霜'},
                         {value:135, name:'玫珂菲双用水粉霜02号'},
                         {value:1548, name:'玫珂菲双用水粉霜06号'},
+                        {value:848, name:'玫珂菲双用水粉霜08号'},
                         {value:548, name:'其他'}
                     ],
                     itemStyle: {
@@ -289,11 +318,12 @@ export default {
                     }
                 }
             ],
-            color: ['rgb(51, 122, 203)', 'rgb(119, 80, 161)', 'rgb(205, 68, 37)', 'rgb(221, 138, 56)', 'rgb(220, 194, 74)', 'rgb(111, 176, 79)']
+            color: ['#49fbbe', '#0cc2a9', '#7b5eea', '#ffa87d', '#34d4e3', '#3a80ff', '#767676']
         },
         {
             title : {
                 top: '10',
+                left: '3%',
                 text: '线上销售渠道占比情况',
                 x:'center'
             },
@@ -303,13 +333,15 @@ export default {
             },
             legend: {
                 top: '40',
+                left: '3%',
+                right: '4%',
                 data: ['京东旗舰店','天猫旗舰店','苏宁','唯品会','丝芙兰', '其他']
             },
             series : [
                 {
                     name: '访问来源',
                     type: 'pie',
-                    radius : '55%',
+                    radius : ['35%', '50%'],
                     center: ['50%', '60%'],
                     data:[
                         {value:35, name:'京东旗舰店'},
@@ -328,11 +360,12 @@ export default {
                     }
                 }
             ],
-            color: ['rgb(51, 122, 203)', 'rgb(119, 80, 161)', 'rgb(205, 68, 37)', 'rgb(221, 138, 56)', 'rgb(220, 194, 74)', 'rgb(111, 176, 79)']
+            color: ['#49fbbe', '#0cc2a9', '#7b5eea', '#ffa87d', '#34d4e3', '#3a80ff', '#767676']
         },
         {
             title : {
                 top: '10',
+                left: '3%',
                 text: '下单终端占比',
                 x:'center'
             },
@@ -342,13 +375,15 @@ export default {
             },
             legend: {
                 top: '40',
+                left: '3%',
+                right: '4%',
                 data: ['手机APP','微信','桌面端网站','手机网站','其他']
             },
             series : [
                 {
                     name: '访问来源',
                     type: 'pie',
-                    radius : '55%',
+                    radius : ['35%', '50%'],
                     center: ['50%', '60%'],
                     data:[
                         {value:335, name:'手机APP'},
@@ -366,7 +401,7 @@ export default {
                     }
                 }
             ],
-            color: ['rgb(71, 123, 166)', 'rgb(103, 173, 222)', 'rgb(51, 80, 100)', 'rgb(87, 120, 144)', 'rgb(98, 144, 172)']
+            color: ['#49fbbe', '#0cc2a9', '#7b5eea', '#ffa87d', '#767676']
         },
     ]
 }

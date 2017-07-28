@@ -139,7 +139,7 @@
             </div>
         </div>
         <div class="search f-cb">
-            <Input class="searchIpt f-fr" placeholder="请输入..." icon="ios-search" onclick="searchIconClick">
+            <Input class="searchIpt f-fr" placeholder="请输入..." icon="ios-search">
 
             </Input>
         </div>
