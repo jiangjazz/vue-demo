@@ -18,6 +18,8 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+## v1.2.0
+>基本完成了对项目样式的变动。目前暂缺1-4员工详情样式
 
 ## v1.1.0
 >添加了两个开发包，node-sass sass-loader，该问题导致编译sass／scss时报错
