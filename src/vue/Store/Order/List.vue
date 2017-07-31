@@ -5,26 +5,33 @@
 </style>
 <template>
     <div class="store-order-list">
-        <div class="u-breadcrumb">
-            <span class="item active">订单管理</span>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
+
+        <Alert closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
+
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
         </div>
-        <Alert style="margin-top: -10px;" closable>最近一次成功更新数据的时间是： 2017-03-15-10:05:47</Alert>
-
-        <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
-
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 import datas from '@/datas/storeOrder.js'
 
 export default {
     name: 'storeOrderList',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '订单管理'
+                }
+            ],
             tableHead: [
                 {
                     title: '订单编号',

@@ -166,8 +166,6 @@
                 <router-link class="routerClass" to="/data/activity">
                     <Menu-item name="1-3">线上活动数据</Menu-item>
                 </router-link>
-                <!-- <Menu-item name="1-4" @click="nopageInfo(false)">O2O数据（暂无）</Menu-item>
-                <Menu-item name="1-5" @click="nopageInfo(false)">商城数据（暂无）</Menu-item> -->
                 <router-link class="routerClass" to="/data/staff">
                     <Menu-item name="1-6">员工与门店数据</Menu-item>
                 </router-link>
@@ -196,27 +194,21 @@
                 <router-link class="routerClass" to="/member/push">
                     <Menu-item name="2-5">数据推送</Menu-item>
                 </router-link>
-                <router-link class="routerClass" to="/member/weixin">
+                <!-- <router-link class="routerClass" to="/member/weixin">
                     <Menu-item name="2-6">微信群发</Menu-item>
                 </router-link>
                 <router-link class="routerClass" to="/member/journey">
                     <Menu-item name="2-7">生命周期管理</Menu-item>
-                </router-link>
+                </router-link> -->
             </Submenu>
             <Submenu name="3">
                 <template slot="title">
                     <Icon type="stats-bars"></Icon>
                     O2O功能中心
                 </template>
-                <!-- <Menu-item name="3-1">创建预约规则（暂无）</Menu-item>
-                <Menu-item name="3-2">预约管理（暂无）</Menu-item> -->
                 <router-link class="routerClass" to="/o2o/coupon">
                     <Menu-item name="3-3">礼品券管理</Menu-item>
                 </router-link>
-
-                <!-- <Menu-item name="3-4">门店管理（暂无）</Menu-item>
-                <Menu-item name="3-5">员工管理（暂无）</Menu-item>
-                <Menu-item name="3-6">员工提醒规则（暂无）</Menu-item> -->
             </Submenu>
             <Submenu name="4">
                 <template slot="title">
@@ -237,6 +229,18 @@
                 </template>
                 <router-link class="routerClass" to="/personal/coupon">
                     <Menu-item name="5-3">我的礼品卷</Menu-item>
+                </router-link>
+            </Submenu>
+            <Submenu name="6">
+                <template slot="title">
+                    <Icon type="person"></Icon>
+                    拓展中心
+                </template>
+                <router-link class="routerClass" to="/member/weixin">
+                    <Menu-item name="2-6">微信群发</Menu-item>
+                </router-link>
+                <router-link class="routerClass" to="/member/journey">
+                    <Menu-item name="2-7">生命周期管理</Menu-item>
                 </router-link>
             </Submenu>
         </Menu>

@@ -31,6 +31,21 @@
 }
 .u-breadcrumb{
     background: $white!important;
+    .item{
+        display: inline-block;
+        margin: 0 5px;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+    a{
+        color: #495060;
+        &:hover{
+            color: #2d8cf0;
+        }
+    }
+    .separator{
+        color: #888888;
+    }
 }
 .u-box-block{
     padding: 15px 10px;
@@ -211,6 +226,40 @@
         .ivu-btn-primary+.ivu-btn,
         .ivu-btn-primary:last-child:not(:first-child){
             border-left-color: $main;
+        }
+    }
+}
+
+.ivu-switch{
+    &-checked{
+        background-color: $main;
+        border-color: $main;
+    }
+}
+
+.ivu-select{
+    &-selection{
+        &:hover{
+            border-color: $main;
+        }
+    }
+    &-visible{
+        .ivu-select-selection{
+            border-color: $main;
+            @include box-shadow(0 0 0 2px rgba($main, .2));
+        }
+    }
+}
+
+.ivu-radio{
+    &-inner{
+        &:after{
+            background-color: $main;
+        }
+    }
+    &-checked{
+        .ivu-radio-inner{
+            border-color: $main;
         }
     }
 }

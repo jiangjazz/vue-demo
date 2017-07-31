@@ -4,37 +4,44 @@
             padding: 10px 20px;
         }
         .action-tab{
-            width: 200px;
+            width: 140px;
+            border-left: 1px solid $border-default;
         }
     }
 </style>
 <template>
     <div class="store-product-list">
-        <div class="u-breadcrumb">
-            <span class="item active">商品管理</span>
-        </div>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
 
         <div class="actionct f-cb">
             <router-link to="/store/product/create">
-                <Button class="f-fr" type="primary">添加商品</Button>
+                <Button class="f-fr" type="primary" icon="plus">添加商品</Button>
             </router-link>
         </div>
-
-        <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        </div>
 
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
 import datas from '@/datas/storeProduct.js'
 
 export default {
     name: 'storeProductList',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '商品管理'
+                }
+            ],
             tableHead: [
                 {
                     title: '商品ID',
@@ -85,27 +92,33 @@ export default {
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'eye'
                                 },
+                                title: '查看',
                                 style: 'margin: 5px;'
-                            }, '查看'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'edit'
                                 },
+                                title: '编辑',
                                 style: 'margin: 5px;'
-                            }, '编辑'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'android-delete'
                                 },
+                                title: '删除',
                                 style: 'margin: 5px;'
-                            }, '删除')
+                            })
                         ])
                     }
                 }

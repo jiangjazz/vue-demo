@@ -4,37 +4,45 @@
         padding: 10px 20px;
     }
     .action-tab{
-        width: 320px;
+        width: 180px;
+        border-left: 1px solid $border-default;
     }
 }
 </style>
 <template>
     <div class="o2o-coupon-list">
-
-        <div class="u-breadcrumb">
-            <span class="item active">礼品券管理</span>
-        </div>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
 
         <div class="actionct f-cb">
             <router-link to="/o2o/coupon/create">
-                <Button class="f-fr" type="primary">创建礼品券</Button>
+                <Button class="f-fr" type="primary" icon="plus">创建礼品券</Button>
             </router-link>
         </div>
 
-        <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        <div class="m-table-ct">
+            <TableTemp :tableHead="tableHead" :tableData="tableData"></TableTemp>
+        </div>
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import TableTemp from '@/components/TableTemp.vue'
+
 import datas from '@/datas/o2oCoupon.js'
 
 export default {
     name: 'o2oGroupList',
     components: {
+        Mybreadcrumb,
         TableTemp
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '礼品券管理'
+                }
+            ],
             tableHead: [
                 {
                     title: '礼品券ID',
@@ -89,36 +97,44 @@ export default {
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'edit'
                                 },
+                                title: '修改',
                                 style: 'margin: 5px;'
-                            }, '编辑'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'ios-infinite-outline'
                                 },
+                                title: '分配',
                                 style: 'margin: 5px;'
-                            }, '分配'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     type: 'primary',
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'grid'
                                 },
+                                title: '生成二维码',
                                 style: 'margin: 5px;'
-                            }, '生成二维码'),
+                            }),
                             createElement('Button', {
                                 class: 'f-ib',
                                 props: {
                                     shape: 'circle',
-                                    size: 'small'
+                                    size: 'small',
+                                    icon: 'android-delete'
                                 },
+                                title: '删除',
                                 style: 'margin: 5px;'
-                            }, '删除')
+                            })
                         ])
                     }
                 }
