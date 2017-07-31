@@ -8,9 +8,10 @@
         }
         .myitem{
             display: inline-block;
-            margin: 10px 1%;
-            width: 23%;
+            width: 25%;
             vertical-align: middle;
+            float: left;
+            padding: 10px;
         }
         .block{
             margin: 20px 20px;
@@ -39,9 +40,7 @@
 </style>
 <template>
     <div class="personal-coupon-list">
-        <div class="u-breadcrumb">
-            <span class="item active">我的礼品券</span>
-        </div>
+        <Mybreadcrumb :items="breadcrumbList"></Mybreadcrumb>
 
         <div class="actionct f-cb">
             <Button @click="modal2=true" class="f-fr" type="primary">使用礼品券</Button>
@@ -51,8 +50,11 @@
             <div class="title">
                 可领取的礼品券：
             </div>
-            <div class="list">
-                <Myitem :viewDetails="viewDetails" :key="itemKeyPrex+index" :datas="item" :index="index" classes="myitem" :istotal="true" v-for="(item, index) in items"></Myitem>
+            <div class="list f-cb">
+                <div class="myitem" v-for="(item, index) in items" :key="itemKeyPrex+index">
+                    <Myitem :viewDetails="viewDetails" :key="itemKeyPrex+index" :datas="item" :index="index" :istotal="true"></Myitem>
+                </div>
+
             </div>
         </div>
 
@@ -60,8 +62,10 @@
             <div class="title">
                 我的礼品券：
             </div>
-            <div class="list">
-                <Myitem :viewDetails="viewDetails" :key="itemKeyPrex+index" :datas="item" :index="index" classes="myitem" v-for="(item, index) in items"></Myitem>
+            <div class="list f-cb">
+                <div class="myitem" v-for="(item, index) in items" :key="itemKeyPrex+index">
+                    <Myitem :viewDetails="viewDetails" :key="itemKeyPrex+index" :datas="item" :index="index"></Myitem>
+                </div>
             </div>
         </div>
 
@@ -102,6 +106,7 @@
     </div>
 </template>
 <script>
+import Mybreadcrumb from '@/components/Breadcrumb.vue'
 import Myitem from './components/Item.vue'
 
 import datas from '@/datas/personalCoupon.js'
@@ -109,10 +114,16 @@ import datas from '@/datas/personalCoupon.js'
 export default {
     name: 'personalCouponList',
     components: {
+        Mybreadcrumb,
         Myitem
     },
     data() {
         return {
+            breadcrumbList: [
+                {
+                    text: '我的礼品券'
+                }
+            ],
             itemKeyPrex: Math.random(),
             items: datas.items,
             modal1: false,

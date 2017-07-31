@@ -41,11 +41,11 @@
     }
     &-foot{
         padding: 8px 16px;
-        background-color: #ffffff;
-        border-top: 1px dashed #cccccc;
+        background-color: $white;
+        border-top: 1px dashed $border-default;
         .result{
             padding: 10px 0;
-            font-size: 14px;
+            font-size: $f-h5;
             font-weight: bold;
             line-height: 2em;
             &_num{

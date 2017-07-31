@@ -2,51 +2,52 @@
 .personal-list-item{
     position: relative;
     overflow: hidden;
-    background-color: #ffffff;
-    box-shadow: 3px 2px 3px #cccccc;
-    border-radius: 3px;
+    @include box-shadow(1px 1px 5px $shadow);
     &-head{
         padding: 15px 16px;
-        font-size: 16px;
+        color: $white;
+        font-size: $f-h4;
         font-weight: bold;
-        border: 1px dashed #cccccc;
+        @include background-image($orange $orange-hover);
     }
     &-ct{
         padding: 8px 16px;
-        border: 1px dashed #cccccc;
-        border-top: none;
+        // border: 1px dashed #cccccc;
+        background-color: $white;
         .details{
             .title{
                 padding: 10px 0;
                 line-height: 2.5em;
                 font-weight: bold;
-                font-size: 14px;
+                font-size: $f-h5;
             }
             .lict{
                 height: 60px;
                 overflow: hidden;
             }
             .li{
-                font-size: 12px;
+                font-size: $f-h6;
                 line-height: 20px;
             }
             .time{
                 margin-top: 10px;
                 line-height: 2em;
-                font-size: 12px;
+                font-size: $f-h6;
                 color: #888888;
             }
         }
     }
     &-foot{
         padding: 8px 16px;
-        background-color: #ffffff;
-        text-align: center;
-        color: #ffffff;
+        background-color: $white;
+        border-top: 1px dashed $border-default;
         .result{
-            font-size: 14px;
+            font-size: $f-h5;
             font-weight: bold;
             line-height: 2em;
+            &_num{
+                color: $main;
+            }
         }
     }
     &-actions{
@@ -76,6 +77,11 @@
             opacity: 1;
         }
     }
+    &.type2{
+        .personal-list-item-head{
+            @include background-image($purple $purple-hover);
+        }
+    }
 }
 </style>
 <template>
@@ -92,9 +98,10 @@
                 <div class="time">{{ `${datas.createtime} 至 ${datas.lasttime}` }}</div>
             </div>
         </div>
-        <div :class="prefixCls+'-foot'" :style="{ background: istotal?'rgb(22, 155, 213)': 'rgb(0, 175, 120)'}">
+        <div :class="prefixCls+'-foot'">
             <div class="result">
-                {{ `${istotal?'剩余':'可用'}：${datas.num}张` }}
+                {{ `${istotal?'剩余':'可用'}：` }}
+                <span class="result_num">{{ datas.num }}张</span>
             </div>
         </div>
 
@@ -144,7 +151,8 @@ export default {
         itemCls() {
             return [
                 `${prefixCls}`,
-                `${this.classes}`
+                `${this.classes}`,
+                this.istotal? ``: 'type2'
             ]
         }
     },
