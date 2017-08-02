@@ -1,21 +1,23 @@
 <style lang="scss" scoped>
     .data-staff-details{
         padding: 20px 20px;
-        background-color: #ffffff;
+        // background-color: #ffffff;
         .details-list{
             padding: 0;
             border: 1px solid #f1f1f1;
+            .img_ct{
+                padding: 20px 0;
+            }
             img{
                 display: block;
-                width: 100%;
-                height: 100%;
+                margin: 20px auto;
+                width: 120px;
                 outline: 0;
             }
             dd{
-                padding: 10px 0;
-                text-indent: 2em;
-                border-top: 1px solid #f1f1f1;
-                font-size: 14px;
+                padding: 15px 20px;
+                border-top: 1px solid $border-default;
+                font-size: $f-h5;
                 line-height: 32px;
                 .ivu-btn{
                     margin-right: 20px;
@@ -23,9 +25,13 @@
                 }
             }
         }
+        .col-left,
+        .col-right{
+            padding: 10px;
+        }
         .card-title{
-            padding: 15px 20px;
-            color: #ffffff;
+            padding: 0 0 10px 0;
+            color: $text-normal;
             font-size: 16px;
         }
         .card-1{
@@ -40,99 +46,126 @@
                 background-color: rgb(76, 174, 58);
             }
         }
-        .col-right{
-            border: 1px solid #f1f1f1;
+
+        .t_name{
+            color: $text-normal;
+            font-size: $f-h4;
+        }
+        .t_desc{
+            padding: 10px 0 30px 0;
+            font-size: $f-h5;
+            color: $disabled;
+        }
+        .span{
+            font-weight: bold;
         }
         .row-title{
             margin-bottom: 15px;
             font-size: 16px;
             font-weight: bold;
         }
-        .row1{
-            margin-top: 30px;
-            padding: 20px 30px;
-            background: #ffffff;
-            border-top: 5px solid rgb(239, 113, 152);
-        }
-        .row2{
-            margin-top: 30px;
-            padding: 20px 30px;
-            background: #ffffff;
-            border-top: 5px solid rgb(71, 163, 98);
-        }
     }
 </style>
 <template>
     <div class="data-staff-details">
         <Row>
-            <Col span="9">
-                <dl class="details-list">
-                    <dt>
-                        <img :src="staff_workerdetails_1" />
+            <Col span="9" class="col-left">
+                <dl class="details-list u-box-block">
+                    <dt class="f-tac">
+                        <div class="img_ct">
+                            <img :src="member_head" />
+                        </div>
+                        <p class="t_name">Fancy Moon</p>
+                        <div class="t_desc">
+                            <p class="t_desc_item">中国 -上海 - IAPM</p>
+                            <p class="t_desc_item">13888888888</p>
+                            <p class="t_desc_item">liu.wenming@163.om</p>
+                        </div>
+
                     </dt>
                     <dd>
                         成单数
-                        <Button class="f-fr" type="primary" shape="circle">23</Button>
+                        <span class="f-fr span">23</span>
                     </dd>
                     <dd>
                         成单金额
-                        <Button class="f-fr" type="primary" shape="circle">￥32,344.00</Button>
+                        <span class="f-fr span">￥32,344.00</span>
                     </dd>
                     <dd>
                         预约完成
-                        <Button class="f-fr" type="primary" shape="circle">30</Button>
+                        <span class="f-fr span">30</span>
                     </dd>
                     <dd>
                         客户满意度
-                        <Button class="f-fr" type="primary" shape="circle">96%</Button>
+                        <span class="f-fr span">96%</span>
                     </dd>
                     <dd>
                         关联客户
-                        <Button class="f-fr" type="primary" shape="circle">37</Button>
+                        <span class="f-fr span">37</span>
                     </dd>
                     <dd>
                         综合排名
-                        <Button class="f-fr" type="primary" shape="circle">5</Button>
+                        <span class="f-fr span">5</span>
                     </dd>
                 </dl>
-                <div class="card-1">
-                    <div class="card-title">
-                        刘文茗 - 客户复购排行榜TOP5
-                    </div>
-                    <!-- 表格区域 -->
-                    <Table border :columns="tableHead1" :data="tableData1"></Table>
-                </div>
-
-                <div class="card-2">
-                    <div class="card-title">
-                        刘文茗 - 客户复购排行榜TOP5
-                    </div>
-                    <!-- 表格区域 -->
-                    <Table border :columns="tableHead2" :data="tableData2"></Table>
-                </div>
             </Col>
-            <Col span="1">&nbsp;</Col>
-            <Col span="14" class="col-right">
-                <div class="row1">
-                    <Echart :options="echartsOpts[0]" :chartHeight="320" style="margin-bottom: 20px">
-                    </Echart>
-                    <Echart :options="echartsOpts[1]" :chartHeight="320">
-                    </Echart>
+            <Col span="15" class="col-right">
+                <div class="u-box-block" style="margin-bottom: 20px;">
+                    <div class="card-title">
+                        刘文茗 - 客户复购排行榜TOP5
+                    </div>
+                    <!-- 表格区域 -->
+                    <Table :columns="tableHead1" :data="tableData1"></Table>
                 </div>
 
-                <div class="row2">
-                    <Echart :options="echartsOpts[2]" :chartHeight="320" style="margin-bottom: 20px">
-                    </Echart>
-                    <Echart :options="echartsOpts[3]" :chartHeight="320">
-                    </Echart>
+                <div class="u-box-block">
+                    <div class="card-title">
+                        刘文茗 - 客户复购排行榜TOP5
+                    </div>
+                    <!-- 表格区域 -->
+                    <Table :columns="tableHead2" :data="tableData2"></Table>
                 </div>
 
             </Col>
         </Row>
+
+        <div class="u-box-block" style="margin: 20px 10px;">
+            <div class="card-title">
+                刘文茗 - 客户复购排行榜TOP5
+            </div>
+            <Row>
+                <Col span="10">
+                    <Echart :options="echartsOpts[0]" :chartHeight="320" style="margin-bottom: 20px">
+                    </Echart>
+                </Col>
+                <Col span="1">&nbsp;</Col>
+                <Col span="13">
+                    <Echart :options="echartsOpts[1]" :chartHeight="320">
+                    </Echart>
+                </Col>
+            </Row>
+        </div>
+
+        <div class="u-box-block" style="margin: 20px 10px;">
+            <div class="card-title">
+                刘文茗  本年度周排行情况：
+            </div>
+            <Row>
+                <Col span="10">
+                    <Echart :options="echartsOpts[2]" :chartHeight="320" style="margin-bottom: 20px">
+                    </Echart>
+                </Col>
+                <Col span="1">&nbsp;</Col>
+                <Col span="13">
+                    <Echart :options="echartsOpts[3]" :chartHeight="320">
+                    </Echart>
+                </Col>
+            </Row>
+        </div>
     </div>
 </template>
 <script>
-import staff_workerdetails_1 from '@/assets/data/staff_workerdetails_1.png'
+import member_head from '@/assets/data/member_head.png'
 
 import Echart from '@/components/Echarts.vue'
 
@@ -145,7 +178,7 @@ export default {
     },
     data() {
         return {
-            staff_workerdetails_1,
+            member_head,
             echartsOpts: datas.echartsOpts,
             tableHead1:[
                 {

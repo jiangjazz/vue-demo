@@ -1,28 +1,31 @@
 <style lang="scss" scoped>
     .member-fans-details{
         .details_content{
-            padding: 15px 20px;
+            padding: 15px 10px;
             background-color: $bg-content;
-            @include box-shadow(1px 1px 5px $shadow);
         }
         .col-left,
         .col-right{
-            background-color: $white;
+            padding: 10px;
+            .ivu-card-bordered{
+                border: none;
+            }
         }
         .details-list{
             padding: 0;
-            border: 1px solid #f1f1f1;
+            .img_ct{
+                padding: 20px 0;
+            }
             img{
                 display: block;
-                margin: 20px auto;
+                margin: auto;
                 width: 120px;
                 outline: 0;
             }
             dd{
                 padding: 10px 20px;
-                // text-indent: 2em;
-                border-top: 1px solid #f1f1f1;
-                font-size: 14px;
+                border-top: 1px solid $border-default;
+                font-size: $f-h5;
                 line-height: 32px;
                 .ivu-btn{
                     margin-right: 20px;
@@ -53,9 +56,9 @@
         <div class="details_content">
             <Row>
                 <Col span="9" class="col-left">
-                    <dl class="details-list">
+                    <dl class="details-list u-box-block">
                         <dt class="f-tac">
-                            <div class="">
+                            <div class="img_ct">
                                 <img :src="member_head" />
                             </div>
                             <p class="t_name">Fancy Moon</p>
@@ -97,12 +100,13 @@
                         </dd>
                     </dl>
                 </Col>
-                <Col span="1">&nbsp;</Col>
-                <Col span="14" class="col-right">
-                    <Card dis-hover>
-                        <p slot="title">会员行为</p>
-                        <img :src="member_details_2" width="80%" />
-                    </Card>
+                <Col span="15" class="col-right">
+                    <div class="u-box-block" style="padding: 0;">
+                        <Card dis-hover>
+                            <p slot="title">会员行为</p>
+                            <img :src="member_details_2" width="80%" />
+                        </Card>
+                    </div>
                 </Col>
             </Row>
         </div>
