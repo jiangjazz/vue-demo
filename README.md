@@ -18,6 +18,9 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+## v1.3.0
+>完成改版需求
+
 ## v1.2.0
 >基本完成了对项目样式的变动。目前暂缺1-4员工详情样式
 
